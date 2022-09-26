@@ -18,7 +18,31 @@ type Font struct {
 	Src string
 }
 
+type Asset struct {
+}
+
+type Offset struct {
+}
+
+type Transform struct {
+}
+
+type Transition struct {
+}
+
 type Clip struct {
+	Asset    Asset
+	Start    int
+	Length   int
+	Fit      string
+	Scale    int
+	Position string
+	Offset   Offset
+	Transition
+	Effect  string
+	Filter  string
+	Opacity int
+	Transform
 }
 type Track struct {
 	Clips []Clip
