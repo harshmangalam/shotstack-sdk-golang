@@ -1,20 +1,21 @@
 package edit
 
-type Effect string
+type EffectType string
 
 const (
-	FadeIn        Effect = "fadeIn"
-	FadeOut       Effect = "fadeOut"
-	FadeInFadeOut Effect = "fadeInFadeOut"
+	FadeIn        EffectType = "fadeIn"
+	FadeOut       EffectType = "fadeOut"
+	FadeInFadeOut EffectType = "fadeInFadeOut"
 )
 
 type SoundTrack struct {
-	src    string
-	effect Effect
-	volume string
+	Src    string
+	Effect EffectType
+	Volume string
 }
 
 type Font struct {
+	Src string
 }
 
 type Track struct {
