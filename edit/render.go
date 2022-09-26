@@ -76,10 +76,6 @@ type Edit struct {
 	Disk     Disk // "local" | "mount"
 }
 
-func NewEdit() *Edit {
-	return &Edit{}
-}
-
 func NewTimeline() *Timeline {
 	return &Timeline{}
 }
@@ -92,22 +88,32 @@ func NewMerges() *[]Merge {
 	return &[]Merge{}
 }
 
+// create new edit instance
+func NewEdit() *Edit {
+	return &Edit{}
+}
+
+// set edit timeline
 func (e *Edit) SetTimeline(timeline *Timeline) *Edit {
 	return &Edit{Timeline: timeline}
 }
 
+// set edit output
 func (e *Edit) SetOutput(output *Output) *Edit {
 	return &Edit{Output: output}
 }
 
+// set edit merges
 func (e *Edit) SetMerges(merges *[]Merge) *Edit {
 	return &Edit{Merges: merges}
 }
 
+// set edit callback
 func (e *Edit) SetCallback(callback string) *Edit {
 	return &Edit{Callback: callback}
 }
 
-func (e *Edit) SetDisk(disk string) *Edit {
+// set edit disk
+func (e *Edit) SetDisk(disk Disk) *Edit {
 	return &Edit{Disk: disk}
 }
