@@ -55,10 +55,10 @@ type Track struct {
 }
 
 type Timeline struct {
-	SoundTrack
+	SoundTrack *SoundTrack
 	Background string
-	fonts      []Font
-	tracks     []Track
+	Fonts      *[]Font
+	Tracks     *[]Track
 	Cache      bool
 }
 
@@ -74,10 +74,6 @@ type Edit struct {
 	Merges   *[]Merge
 	Callback string
 	Disk     Disk // "local" | "mount"
-}
-
-func NewTimeline() *Timeline {
-	return &Timeline{}
 }
 
 func NewOutput() *Output {
@@ -116,4 +112,30 @@ func (e *Edit) SetCallback(callback string) *Edit {
 // set edit disk
 func (e *Edit) SetDisk(disk Disk) *Edit {
 	return &Edit{Disk: disk}
+}
+
+// timeline api
+
+func NewTimeline() *Timeline {
+	return &Timeline{}
+}
+
+func (t *Timeline) SetSoundTrack(soundTrack *SoundTrack) *Timeline {
+	return &Timeline{SoundTrack: soundTrack}
+}
+
+func (t *Timeline) SetBackground(background string) *Timeline {
+	return &Timeline{Background: background}
+}
+
+func (t *Timeline) SetFonts(fonts *[]Font) *Timeline {
+	return &Timeline{Fonts: fonts}
+}
+
+func (t *Timeline) SetTracks(tracks *[]Track) *Timeline {
+	return &Timeline{Tracks: tracks}
+}
+
+func (t *Timeline) SetCache(cache bool) *Timeline {
+	return &Timeline{Cache: cache}
 }
