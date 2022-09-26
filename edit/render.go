@@ -18,7 +18,10 @@ type Font struct {
 	Src string
 }
 
+type Clip struct {
+}
 type Track struct {
+	Clips []Clip
 }
 
 type Timeline struct {
