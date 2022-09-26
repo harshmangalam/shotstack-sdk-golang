@@ -1,14 +1,20 @@
 package shotstacksdkgolang
 
 type Config struct {
-	ApiKey      string // provide api_key from related environment
-	Environment string // Environment can be "Sandbox" | "Production"
+	ApiKey string
+	Env    string
 }
 
-func New(apiKey, env string) *Config {
+func NewConfig() *Config {
+	return &Config{}
+}
 
-	return &Config{
-		ApiKey:      apiKey,
-		Environment: env,
-	}
+func (c *Config) SetApiKey(apiKey string) *Config {
+	c.ApiKey = apiKey
+	return c
+}
+
+func (c *Config) SetEnv(env string) *Config {
+	c.Env = env
+	return c
 }
