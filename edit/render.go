@@ -65,7 +65,23 @@ type Merge struct {
 type Edit struct {
 	Timeline Timeline
 	Output   Output
-	Merge    []Merge
+	Merges   []Merge
 	Callback string
 	Disk     string // "local" | "mount"
+}
+
+func NewEdit() *Edit {
+	return &Edit{}
+}
+
+func NewTimeline() *Timeline {
+	return &Timeline{}
+}
+
+func NewOutput() *Output {
+	return &Output{}
+}
+
+func NewMerges() *[]Merge {
+	return &[]Merge{}
 }
