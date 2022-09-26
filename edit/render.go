@@ -84,37 +84,32 @@ func NewMerges() *[]Merge {
 	return &[]Merge{}
 }
 
-// create new edit instance
+// edit
 func NewEdit() *Edit {
 	return &Edit{}
 }
 
-// set edit timeline
 func (e *Edit) SetTimeline(timeline *Timeline) *Edit {
 	return &Edit{Timeline: timeline}
 }
 
-// set edit output
 func (e *Edit) SetOutput(output *Output) *Edit {
 	return &Edit{Output: output}
 }
 
-// set edit merges
 func (e *Edit) SetMerges(merges *[]Merge) *Edit {
 	return &Edit{Merges: merges}
 }
 
-// set edit callback
 func (e *Edit) SetCallback(callback string) *Edit {
 	return &Edit{Callback: callback}
 }
 
-// set edit disk
 func (e *Edit) SetDisk(disk Disk) *Edit {
 	return &Edit{Disk: disk}
 }
 
-// timeline api
+// timeline
 
 func NewTimeline() *Timeline {
 	return &Timeline{}
