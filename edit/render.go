@@ -1,11 +1,17 @@
 package edit
 
 type SoundTrackEffect string
+type Disk string
 
 const (
 	FadeIn        SoundTrackEffect = "fadeIn"
 	FadeOut       SoundTrackEffect = "fadeOut"
 	FadeInFadeOut SoundTrackEffect = "fadeInFadeOut"
+)
+
+const (
+	Local Disk = "local"
+	Mount Disk = "mount"
 )
 
 type SoundTrack struct {
@@ -67,7 +73,7 @@ type Edit struct {
 	Output   *Output
 	Merges   *[]Merge
 	Callback string
-	Disk     string // "local" | "mount"
+	Disk     Disk // "local" | "mount"
 }
 
 func NewEdit() *Edit {
