@@ -1,6 +1,9 @@
 package edit
 
 type SoundTrack struct {
+	src    string
+	effect string
+	volume string
 }
 
 type Font struct {
