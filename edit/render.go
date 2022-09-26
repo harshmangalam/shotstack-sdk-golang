@@ -17,7 +17,7 @@ const (
 type SoundTrack struct {
 	Src    string
 	Effect SoundTrackEffect
-	Volume string
+	Volume int8
 }
 
 type Font struct {
@@ -133,4 +133,22 @@ func (t *Timeline) SetTracks(tracks *[]Track) *Timeline {
 
 func (t *Timeline) SetCache(cache bool) *Timeline {
 	return &Timeline{Cache: cache}
+}
+
+//  sound track
+
+func NewSoundTrack() *SoundTrack {
+	return &SoundTrack{}
+}
+
+func (s *SoundTrack) SetSource(src string) *SoundTrack {
+	return &SoundTrack{Src: src}
+}
+
+func (s *SoundTrack) SetEffect(effect SoundTrackEffect) *SoundTrack {
+	return &SoundTrack{Effect: effect}
+}
+
+func (s *SoundTrack) SetVolume(volume int8) *SoundTrack {
+	return &SoundTrack{Volume: volume}
 }
