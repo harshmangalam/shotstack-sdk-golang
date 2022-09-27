@@ -5,6 +5,7 @@ type Disk string
 type ClipFilter string
 type ClipEffect string
 type ClipPosition string
+type ClipFit string
 
 const (
 	FadeIn        SoundTrackEffect = "fadeIn"
@@ -48,6 +49,13 @@ const (
 	center      ClipPosition = "center"
 )
 
+const (
+	cover   ClipFit = "cover"
+	contain ClipFit = "contain"
+	crop    ClipFit = "crop"
+	none    ClipFit = "none"
+)
+
 type SoundTrack struct {
 	Src    string
 	Effect SoundTrackEffect
@@ -74,7 +82,7 @@ type Clip struct {
 	Asset      *Asset
 	Start      int
 	Length     int
-	Fit        string
+	Fit        ClipFit
 	Scale      int
 	Position   ClipPosition
 	Offset     *Offset
