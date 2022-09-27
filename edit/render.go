@@ -379,6 +379,9 @@ func (a *Asset) SetLumaAsset(LumaAsset *LumaAssetType) *Asset {
 
 // video asset
 
+func NewVideoAsset() *VideoAssetType {
+	return &VideoAssetType{}
+}
 func (v *VideoAssetType) SetVideoAssetSrc(src string) *VideoAssetType {
 	return &VideoAssetType{Src: src}
 }
@@ -397,23 +400,36 @@ func (v *VideoAssetType) SetVideoAssetCrop(crop *Crop) *VideoAssetType {
 
 // audio asset
 
-func NewAudio() *AudioAssetType {
+func NewAudioAsset() *AudioAssetType {
 	return &AudioAssetType{}
 }
 
-func (*AudioAssetType) SetAudioSrc(src string) *AudioAssetType {
+func (a *AudioAssetType) SetAudioAssetSrc(src string) *AudioAssetType {
 	return &AudioAssetType{Src: src}
 }
-func (*AudioAssetType) SetAudioTrim(trim int) *AudioAssetType {
+func (a *AudioAssetType) SetAudioAssetTrim(trim int) *AudioAssetType {
 	return &AudioAssetType{Trim: trim}
 }
 
-func (*AudioAssetType) SetAudioVolume(vol float32) *AudioAssetType {
+func (a *AudioAssetType) SetAudioAssetVolume(vol float32) *AudioAssetType {
 	return &AudioAssetType{Volume: vol}
 }
 
-func (*AudioAssetType) SetAudioEffect(effect AudioEffect) *AudioAssetType {
+func (a *AudioAssetType) SetAudioAssetEffect(effect AudioEffect) *AudioAssetType {
 	return &AudioAssetType{Effect: effect}
+}
+
+// image asset
+
+func NewImageAsset() *ImageAssetType {
+	return &ImageAssetType{}
+}
+
+func (i *ImageAssetType) SetImageAssetSrc(src string) *ImageAssetType {
+	return &ImageAssetType{Src: src}
+}
+func (i *ImageAssetType) SetImageAssetCrop(crop *Crop) *ImageAssetType {
+	return &ImageAssetType{Crop: crop}
 }
 
 // offset
