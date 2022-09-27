@@ -29,31 +29,31 @@ const (
 )
 
 const (
-	zoomIn     ClipEffect = "zoomIn"
-	zoomOut    ClipEffect = "zoomOut"
-	slideLeft  ClipEffect = "slideLeft"
-	slideRight ClipEffect = "slideRight"
-	slideUp    ClipEffect = "slideUp"
-	slideDown  ClipEffect = "slideDown"
+	ZoomIn     ClipEffect = "zoomIn"
+	ZoomOut    ClipEffect = "zoomOut"
+	SlideLeft  ClipEffect = "slideLeft"
+	SlideRight ClipEffect = "slideRight"
+	SlideUp    ClipEffect = "slideUp"
+	SlideDown  ClipEffect = "slideDown"
 )
 
 const (
-	top         ClipPosition = "top"
-	topRight    ClipPosition = "topRight"
-	right       ClipPosition = "right"
-	bottomRight ClipPosition = "bottomRight"
-	bottom      ClipPosition = "bottom"
-	bottomLeft  ClipPosition = "bottomLeft"
-	left        ClipPosition = "left"
-	topLeft     ClipPosition = "topLeft"
-	center      ClipPosition = "center"
+	Top         ClipPosition = "top"
+	TopRight    ClipPosition = "topRight"
+	Right       ClipPosition = "right"
+	BottomRight ClipPosition = "bottomRight"
+	Bottom      ClipPosition = "bottom"
+	BottomLeft  ClipPosition = "bottomLeft"
+	Left        ClipPosition = "left"
+	TopLeft     ClipPosition = "topLeft"
+	Center      ClipPosition = "center"
 )
 
 const (
-	cover   ClipFit = "cover"
-	contain ClipFit = "contain"
-	crop    ClipFit = "crop"
-	none    ClipFit = "none"
+	Cover   ClipFit = "cover"
+	Contain ClipFit = "contain"
+	Crop    ClipFit = "crop"
+	None    ClipFit = "none"
 )
 
 type SoundTrack struct {
