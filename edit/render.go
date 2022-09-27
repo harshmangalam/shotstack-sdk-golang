@@ -3,6 +3,7 @@ package edit
 type SoundTrackEffect string
 type Disk string
 type ClipFilter string
+type ClipEffect string
 
 const (
 	FadeIn        SoundTrackEffect = "fadeIn"
@@ -23,6 +24,15 @@ const (
 	Lighten   ClipFilter = "lighten"
 	Muted     ClipFilter = "muted"
 	Negative  ClipFilter = "negative"
+)
+
+const (
+	zoomIn     ClipEffect = "zoomIn"
+	zoomOut    ClipEffect = "zoomOut"
+	slideLeft  ClipEffect = "slideLeft"
+	slideRight ClipEffect = "slideRight"
+	slideUp    ClipEffect = "slideUp"
+	slideDown  ClipEffect = "slideDown"
 )
 
 type SoundTrack struct {
@@ -56,7 +66,7 @@ type Clip struct {
 	Position   string
 	Offset     *Offset
 	Transition *Transition
-	Effect     string
+	Effect     ClipEffect
 	Filter     ClipFilter
 	Opacity    int8
 	Transform  *Transform
