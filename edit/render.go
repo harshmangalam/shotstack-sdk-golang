@@ -292,55 +292,68 @@ func (t *Track) SetClips(clips *[]Clip) *Track {
 
 // clip
 func NewClip() *Clip {
-	return &Clip{}
+	c := new(Clip)
+	return c
 }
 
 func (c *Clip) SetAsset(asset *Asset) *Clip {
-	return &Clip{Asset: asset}
+	c.Asset = asset
+	return c
 }
 
 func (c *Clip) SetStart(start int) *Clip {
-	return &Clip{Start: start}
+	c.Start = start
+	return c
 }
 
 func (c *Clip) SetLength(length int) *Clip {
-	return &Clip{Length: length}
+	c.Length = length
+	return c
 }
 
 func (c *Clip) SetFit(fit ClipFit) *Clip {
-	return &Clip{Fit: fit}
+	c.Fit = fit
+	return c
 }
 
 func (c *Clip) SetScale(scale int) *Clip {
-	return &Clip{Scale: scale}
+	c.Scale = scale
+	return c
 }
 
 func (c *Clip) SetPosition(pos Position) *Clip {
-	return &Clip{Position: pos}
+	c.Position = pos
+	return c
 }
 
 func (c *Clip) SetOffset(offset *Offset) *Clip {
-	return &Clip{Offset: offset}
+	c.Offset = offset
+	return c
 }
 
 func (c *Clip) SetTransition(transition *Transition) *Clip {
-	return &Clip{Transition: transition}
+	c.Transition = transition
+	return c
 }
 
 func (c *Clip) SetEffect(effect ClipEffect) *Clip {
-	return &Clip{Effect: effect}
+	c.Effect = effect
+	return c
 }
 
 func (c *Clip) SetFilter(filter ClipFilter) *Clip {
-	return &Clip{Filter: filter}
+	c.Filter = filter
+	return c
 }
 
 func (c *Clip) SetOpacity(opacity int8) *Clip {
-	return &Clip{Opacity: opacity}
+	c.Opacity = opacity
+	return c
 }
 
 func (c *Clip) SetTransform(transform *Transform) *Clip {
-	return &Clip{Transform: transform}
+	c.Transform = transform
+	return c
 }
 
 //  asset
