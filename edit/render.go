@@ -129,6 +129,11 @@ type AudioAssetType struct {
 	Volume int8
 	Effect AudioEffect
 }
+
+type LumaAssetType struct {
+	Src  string
+	Trim int
+}
 type Asset struct {
 	Type       AssetType
 	VideoAsset *VideoAssetType
@@ -136,7 +141,7 @@ type Asset struct {
 	TitleAsset *TitleAssetType
 	HtmlAsset  *HtmlAssetType
 	AudioAsset *AudioAssetType
-	LumaAsset  *LumaAsset
+	LumaAsset  *LumaAssetType
 }
 
 type Offset struct {
