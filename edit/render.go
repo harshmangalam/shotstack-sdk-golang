@@ -1,6 +1,6 @@
 package edit
 
-type SoundTrackEffect string
+type AudioEffect string
 type Disk string
 type ClipFilter string
 type ClipEffect string
@@ -11,9 +11,9 @@ type TitleAssetStyle string
 type AssetType string
 
 const (
-	FadeIn        SoundTrackEffect = "fadeIn"
-	FadeOut       SoundTrackEffect = "fadeOut"
-	FadeInFadeOut SoundTrackEffect = "fadeInFadeOut"
+	FadeIn        AudioEffect = "fadeIn"
+	FadeOut       AudioEffect = "fadeOut"
+	FadeInFadeOut AudioEffect = "fadeInFadeOut"
 )
 
 const (
@@ -83,7 +83,7 @@ const (
 
 type SoundTrack struct {
 	Src    string
-	Effect SoundTrackEffect
+	Effect AudioEffect
 	Volume int8
 }
 
@@ -122,13 +122,20 @@ type HtmlAssetType struct {
 	Background string
 	Position   Position
 }
+
+type AudioAssetType struct {
+	Src    string
+	Trim   int
+	Volume int8
+	Effect AudioEffect
+}
 type Asset struct {
 	Type       AssetType
 	VideoAsset *VideoAssetType
 	ImageAsset *ImageAssetType
 	TitleAsset *TitleAssetType
 	HtmlAsset  *HtmlAssetType
-	AudioAsset *AudioAsset
+	AudioAsset *AudioAssetType
 	LumaAsset  *LumaAsset
 }
 
@@ -250,7 +257,7 @@ func (s *SoundTrack) SetSource(src string) *SoundTrack {
 	return &SoundTrack{Src: src}
 }
 
-func (s *SoundTrack) SetEffect(effect SoundTrackEffect) *SoundTrack {
+func (s *SoundTrack) SetEffect(effect AudioEffect) *SoundTrack {
 	return &SoundTrack{Effect: effect}
 }
 
