@@ -84,7 +84,7 @@ const (
 type SoundTrack struct {
 	Src    string
 	Effect AudioEffect
-	Volume int8
+	Volume float32
 }
 
 type Font struct {
@@ -255,29 +255,35 @@ func (t *Timeline) SetCache(cache bool) *Timeline {
 //  sound track
 
 func NewSoundTrack() *SoundTrack {
-	return &SoundTrack{}
+	s := new(SoundTrack)
+	return s
 }
 
-func (s *SoundTrack) SetSource(src string) *SoundTrack {
-	return &SoundTrack{Src: src}
+func (s *SoundTrack) SetSrc(src string) *SoundTrack {
+	s.Src = src
+	return s
 }
 
 func (s *SoundTrack) SetEffect(effect AudioEffect) *SoundTrack {
-	return &SoundTrack{Effect: effect}
+	s.Effect = effect
+	return s
 }
 
-func (s *SoundTrack) SetVolume(volume int8) *SoundTrack {
-	return &SoundTrack{Volume: volume}
+func (s *SoundTrack) SetVolume(volume float32) *SoundTrack {
+	s.Volume = volume
+	return s
 }
 
 // font
 
 func NewFont() *Font {
-	return &Font{}
+	f := new(Font)
+	return f
 }
 
 func (f *Font) SetSrc(src string) *Font {
-	return &Font{Src: src}
+	f.Src = src
+	return f
 }
 
 // track
