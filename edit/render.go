@@ -345,6 +345,38 @@ func (c *Clip) SetTransform(transform *Transform) *Clip {
 
 //  asset
 
+func NewAsset() *Asset {
+	return &Asset{}
+}
+
+func (a *Asset) SetAssetType(assetType AssetType) *Asset {
+	return &Asset{Type: assetType}
+}
+
+func (a *Asset) SetVideoAsset(videoAssetType *VideoAssetType) *Asset {
+	return &Asset{VideoAsset: videoAssetType}
+}
+
+func (a *Asset) SetAudioAsset(audioAsset *AudioAssetType) *Asset {
+	return &Asset{AudioAsset: audioAsset}
+}
+
+func (a *Asset) SetImageAsset(imageAsser *ImageAssetType) *Asset {
+	return &Asset{ImageAsset: imageAsser}
+}
+
+func (a *Asset) SetHtmlAsset(htmlAsset *HtmlAssetType) *Asset {
+	return &Asset{HtmlAsset: htmlAsset}
+}
+
+func (a *Asset) SetTitleAsset(titleAsset *TitleAssetType) *Asset {
+	return &Asset{TitleAsset: titleAsset}
+}
+
+func (a *Asset) SetLumaAsset(LumaAsset *LumaAssetType) *Asset {
+	return &Asset{LumaAsset: LumaAsset}
+}
+
 // offset
 
 // transition
