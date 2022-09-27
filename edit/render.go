@@ -145,6 +145,8 @@ type Asset struct {
 }
 
 type Offset struct {
+	X float32
+	Y float32
 }
 
 type Transform struct {
@@ -521,6 +523,20 @@ func (h *HtmlAssetType) SetHtmlAssetPosition(pos Position) *HtmlAssetType {
 }
 
 // offset
+
+func NewOffset() *Offset {
+	return new(Offset)
+}
+
+func (o *Offset) SetX(x float32) *Offset {
+	o.X = x
+	return o
+}
+
+func (o *Offset) SetY(y float32) *Offset {
+	o.Y = y
+	return o
+}
 
 // transition
 
