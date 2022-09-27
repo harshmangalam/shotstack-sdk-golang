@@ -100,7 +100,7 @@ type Crop struct {
 type VideoAssetType struct {
 	Src    string
 	Trim   int
-	Volume int8
+	Volume float32
 	Crop   *Crop
 }
 
@@ -375,6 +375,24 @@ func (a *Asset) SetTitleAsset(titleAsset *TitleAssetType) *Asset {
 
 func (a *Asset) SetLumaAsset(LumaAsset *LumaAssetType) *Asset {
 	return &Asset{LumaAsset: LumaAsset}
+}
+
+// video asset
+
+func (v *VideoAssetType) SetVideoAssetSrc(src string) *VideoAssetType {
+	return &VideoAssetType{Src: src}
+}
+
+func (v *VideoAssetType) SetVideoAssetTrim(trim int) *VideoAssetType {
+	return &VideoAssetType{Trim: trim}
+}
+
+func (v *VideoAssetType) SetVideoAssetVolume(vol float32) *VideoAssetType {
+	return &VideoAssetType{Volume: vol}
+}
+
+func (v *VideoAssetType) SetVideoAssetCrop(crop *Crop) *VideoAssetType {
+	return &VideoAssetType{Crop: crop}
 }
 
 // offset
