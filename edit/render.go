@@ -2,6 +2,7 @@ package edit
 
 type SoundTrackEffect string
 type Disk string
+type ClipFilter string
 
 const (
 	FadeIn        SoundTrackEffect = "fadeIn"
@@ -12,6 +13,16 @@ const (
 const (
 	Local Disk = "local"
 	Mount Disk = "mount"
+)
+
+const (
+	Boost     ClipFilter = "boost"
+	Contrast  ClipFilter = "contrast"
+	Darken    ClipFilter = "darken"
+	Greyscale ClipFilter = "greyscale"
+	Lighten   ClipFilter = "lighten"
+	Muted     ClipFilter = "muted"
+	Negative  ClipFilter = "negative"
 )
 
 type SoundTrack struct {
@@ -46,7 +57,7 @@ type Clip struct {
 	Offset     *Offset
 	Transition *Transition
 	Effect     string
-	Filter     string
+	Filter     ClipFilter
 	Opacity    int8
 	Transform  *Transform
 }
@@ -214,7 +225,7 @@ func (c *Clip) SetEffect(effect string) *Clip {
 	return &Clip{Effect: effect}
 }
 
-func (c *Clip) SetFilter(filter string) *Clip {
+func (c *Clip) SetFilter(filter ClipFilter) *Clip {
 	return &Clip{Filter: filter}
 }
 
