@@ -52,10 +52,10 @@ const (
 )
 
 const (
-	Cover   ClipFit = "cover"
-	Contain ClipFit = "contain"
-	Crop    ClipFit = "crop"
-	None    ClipFit = "none"
+	FitCover   ClipFit = "cover"
+	FitContain ClipFit = "contain"
+	FitCrop    ClipFit = "crop"
+	FitNone    ClipFit = "none"
 )
 
 const (
@@ -77,7 +77,13 @@ type Font struct {
 	Src string
 }
 
-type VideoAssetField struct {
+type Crop struct {
+	Top    float32
+	Bottom float32
+	Left   float32
+	Right  float32
+}
+type VideoAssetType struct {
 	Src    string
 	Trim   int
 	Volume int8
@@ -85,7 +91,7 @@ type VideoAssetField struct {
 }
 type Asset struct {
 	Type       AssetType
-	VideoAsset *VideoAssetField
+	VideoAsset *VideoAssetType
 	ImageAsset *ImageAsset
 	TitleAsset *TitleAsset
 	HtmlAsset  *HtmlAsset
