@@ -229,27 +229,33 @@ func (e *Edit) SetDisk(disk Disk) *Edit {
 // timeline
 
 func NewTimeline() *Timeline {
-	return &Timeline{}
+	t := new(Timeline)
+	return t
 }
 
 func (t *Timeline) SetSoundTrack(soundTrack *SoundTrack) *Timeline {
-	return &Timeline{SoundTrack: soundTrack}
+	t.SoundTrack = soundTrack
+	return t
 }
 
 func (t *Timeline) SetBackground(background string) *Timeline {
-	return &Timeline{Background: background}
+	t.Background = background
+	return t
 }
 
 func (t *Timeline) SetFonts(fonts *[]Font) *Timeline {
-	return &Timeline{Fonts: fonts}
+	t.Fonts = fonts
+	return t
 }
 
 func (t *Timeline) SetTracks(tracks *[]Track) *Timeline {
-	return &Timeline{Tracks: tracks}
+	t.Tracks = tracks
+	return t
 }
 
 func (t *Timeline) SetCache(cache bool) *Timeline {
-	return &Timeline{Cache: cache}
+	t.Cache = cache
+	return t
 }
 
 //  sound track
