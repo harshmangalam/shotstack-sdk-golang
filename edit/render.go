@@ -94,11 +94,16 @@ type ImageAssetType struct {
 	src  string
 	Crop *Crop
 }
+
+type TitleAssetType struct {
+	text  string
+	style string
+}
 type Asset struct {
 	Type       AssetType
 	VideoAsset *VideoAssetType
 	ImageAsset *ImageAssetType
-	TitleAsset *TitleAsset
+	TitleAsset *TitleAssetType
 	HtmlAsset  *HtmlAsset
 	AudioAsset *AudioAsset
 	LumaAsset  *LumaAsset
