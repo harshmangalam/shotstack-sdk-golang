@@ -380,56 +380,69 @@ func (a *Asset) SetLumaAsset(LumaAsset *LumaAssetType) *Asset {
 // video asset
 
 func NewVideoAsset() *VideoAssetType {
-	return &VideoAssetType{}
+	v := new(VideoAssetType)
+	return v
 }
 func (v *VideoAssetType) SetVideoAssetSrc(src string) *VideoAssetType {
-	return &VideoAssetType{Src: src}
+	v.Src = src
+	return v
 }
 
 func (v *VideoAssetType) SetVideoAssetTrim(trim int) *VideoAssetType {
-	return &VideoAssetType{Trim: trim}
+	v.Trim = trim
+	return v
 }
 
 func (v *VideoAssetType) SetVideoAssetVolume(vol float32) *VideoAssetType {
-	return &VideoAssetType{Volume: vol}
+	v.Volume = vol
+	return v
 }
 
 func (v *VideoAssetType) SetVideoAssetCrop(crop *Crop) *VideoAssetType {
-	return &VideoAssetType{Crop: crop}
+	v.Crop = crop
+	return v
 }
 
 // audio asset
 
 func NewAudioAsset() *AudioAssetType {
-	return &AudioAssetType{}
+	a := new(AudioAssetType)
+	return a
 }
 
 func (a *AudioAssetType) SetAudioAssetSrc(src string) *AudioAssetType {
-	return &AudioAssetType{Src: src}
+	a.Src = src
+	return a
 }
 func (a *AudioAssetType) SetAudioAssetTrim(trim int) *AudioAssetType {
-	return &AudioAssetType{Trim: trim}
+	a.Trim = trim
+	return a
 }
 
 func (a *AudioAssetType) SetAudioAssetVolume(vol float32) *AudioAssetType {
-	return &AudioAssetType{Volume: vol}
+	a.Volume = vol
+	return a
 }
 
 func (a *AudioAssetType) SetAudioAssetEffect(effect AudioEffect) *AudioAssetType {
-	return &AudioAssetType{Effect: effect}
+	a.Effect = effect
+	return a
 }
 
 // image asset
 
 func NewImageAsset() *ImageAssetType {
-	return &ImageAssetType{}
+	i := new(ImageAssetType)
+	return i
 }
 
 func (i *ImageAssetType) SetImageAssetSrc(src string) *ImageAssetType {
-	return &ImageAssetType{Src: src}
+	i.Src = src
+	return i
 }
 func (i *ImageAssetType) SetImageAssetCrop(crop *Crop) *ImageAssetType {
-	return &ImageAssetType{Crop: crop}
+	i.Crop = crop
+	return i
 }
 
 // html asset
@@ -450,19 +463,16 @@ func (h *HtmlAssetType) SetHtmlAssetCss(css string) *HtmlAssetType {
 }
 
 func (h *HtmlAssetType) SetHtmlAssetHeight(height int) *HtmlAssetType {
-
 	h.Height = height
 	return h
 }
 
 func (h *HtmlAssetType) SetHtmlAssetWidth(width int) *HtmlAssetType {
-
 	h.Width = width
 	return h
 }
 
 func (h *HtmlAssetType) SetHtmlAssetPosition(pos Position) *HtmlAssetType {
-
 	h.Position = pos
 	return h
 }
