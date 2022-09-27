@@ -4,7 +4,7 @@ type SoundTrackEffect string
 type Disk string
 type ClipFilter string
 type ClipEffect string
-type ClipPosition string
+type Position string
 type ClipFit string
 type TitleAssetStyle string
 
@@ -41,15 +41,15 @@ const (
 )
 
 const (
-	Top         ClipPosition = "top"
-	TopRight    ClipPosition = "topRight"
-	Right       ClipPosition = "right"
-	BottomRight ClipPosition = "bottomRight"
-	Bottom      ClipPosition = "bottom"
-	BottomLeft  ClipPosition = "bottomLeft"
-	Left        ClipPosition = "left"
-	TopLeft     ClipPosition = "topLeft"
-	Center      ClipPosition = "center"
+	Top         Position = "top"
+	TopRight    Position = "topRight"
+	Right       Position = "right"
+	BottomRight Position = "bottomRight"
+	Bottom      Position = "bottom"
+	BottomLeft  Position = "bottomLeft"
+	Left        Position = "left"
+	TopLeft     Position = "topLeft"
+	Center      Position = "center"
 )
 
 const (
@@ -105,16 +105,22 @@ type VideoAssetType struct {
 }
 
 type ImageAssetType struct {
-	src  string
+	Src  string
 	Crop *Crop
 }
 
 type TitleAssetType struct {
-	text  string
-	style TitleAssetStyle
+	Text  string
+	Style TitleAssetStyle
 }
 
 type HtmlAssetType struct {
+	Html       string
+	Css        string
+	Width      int
+	Height     int
+	Background string
+	Position   Position
 }
 type Asset struct {
 	Type       AssetType
@@ -141,7 +147,7 @@ type Clip struct {
 	Length     int
 	Fit        ClipFit
 	Scale      int
-	Position   ClipPosition
+	Position   Position
 	Offset     *Offset
 	Transition *Transition
 	Effect     ClipEffect
@@ -297,7 +303,7 @@ func (c *Clip) SetScale(scale int) *Clip {
 	return &Clip{Scale: scale}
 }
 
-func (c *Clip) SetPosition(pos ClipPosition) *Clip {
+func (c *Clip) SetPosition(pos Position) *Clip {
 	return &Clip{Position: pos}
 }
 
