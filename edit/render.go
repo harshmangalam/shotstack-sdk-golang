@@ -149,9 +149,6 @@ type Offset struct {
 	Y float32
 }
 
-type Transform struct {
-}
-
 type Clip struct {
 	Asset      *Asset
 	Start      int
