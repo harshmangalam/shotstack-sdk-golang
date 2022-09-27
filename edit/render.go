@@ -283,11 +283,13 @@ func (f *Font) SetSrc(src string) *Font {
 // track
 
 func NewTrack() *Track {
-	return &Track{}
+	t := new(Track)
+	return t
 }
 
 func (t *Track) SetClips(clips *[]Clip) *Track {
-	return &Track{Clips: clips}
+	t.Clips = clips
+	return t
 }
 
 // clip
