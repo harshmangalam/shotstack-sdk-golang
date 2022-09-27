@@ -6,6 +6,7 @@ type ClipFilter string
 type ClipEffect string
 type ClipPosition string
 type ClipFit string
+type TitleAssetStyle string
 
 type AssetType string
 
@@ -67,6 +68,19 @@ const (
 	LumaAsset  AssetType = "luma"
 )
 
+const (
+	Minimal     TitleAssetStyle = "minimal"
+	Blockbuster TitleAssetStyle = "blockbuster"
+	Vogue       TitleAssetStyle = "vogue"
+	Sketchy     TitleAssetStyle = "sketchy"
+	Skinny      TitleAssetStyle = "skinny"
+	Chunk       TitleAssetStyle = "chunk"
+	ChunkLight  TitleAssetStyle = "chunkLight"
+	Marker      TitleAssetStyle = "marker"
+	Future      TitleAssetStyle = "future"
+	Subtitle    TitleAssetStyle = "subtitle"
+)
+
 type SoundTrack struct {
 	Src    string
 	Effect SoundTrackEffect
@@ -97,14 +111,17 @@ type ImageAssetType struct {
 
 type TitleAssetType struct {
 	text  string
-	style string
+	style TitleAssetStyle
+}
+
+type HtmlAssetType struct {
 }
 type Asset struct {
 	Type       AssetType
 	VideoAsset *VideoAssetType
 	ImageAsset *ImageAssetType
 	TitleAsset *TitleAssetType
-	HtmlAsset  *HtmlAsset
+	HtmlAsset  *HtmlAssetType
 	AudioAsset *AudioAsset
 	LumaAsset  *LumaAsset
 }
