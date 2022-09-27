@@ -7,6 +7,8 @@ type ClipEffect string
 type ClipPosition string
 type ClipFit string
 
+type AssetType string
+
 const (
 	FadeIn        SoundTrackEffect = "fadeIn"
 	FadeOut       SoundTrackEffect = "fadeOut"
@@ -56,6 +58,15 @@ const (
 	None    ClipFit = "none"
 )
 
+const (
+	VideoAsset AssetType = "video"
+	ImageAsset AssetType = "image"
+	TitleAsset AssetType = "title"
+	HtmlAsset  AssetType = "html"
+	AudioAsset AssetType = "audio"
+	LumaAsset  AssetType = "luma"
+)
+
 type SoundTrack struct {
 	Src    string
 	Effect SoundTrackEffect
@@ -67,6 +78,7 @@ type Font struct {
 }
 
 type Asset struct {
+	Type AssetType
 }
 
 type Offset struct {
@@ -267,3 +279,11 @@ func (c *Clip) SetOpacity(opacity int8) *Clip {
 func (c *Clip) SetTransform(transform *Transform) *Clip {
 	return &Clip{Transform: transform}
 }
+
+//  asset
+
+// offset
+
+// transition
+
+// transform
