@@ -37,18 +37,18 @@ type Transition struct {
 }
 
 type Clip struct {
-	Asset    Asset
-	Start    int
-	Length   int
-	Fit      string
-	Scale    int
-	Position string
-	Offset   Offset
-	Transition
-	Effect  string
-	Filter  string
-	Opacity int
-	Transform
+	Asset      *Asset
+	Start      int
+	Length     int
+	Fit        string
+	Scale      int
+	Position   string
+	Offset     *Offset
+	Transition *Transition
+	Effect     string
+	Filter     string
+	Opacity    int8
+	Transform  *Transform
 }
 type Track struct {
 	Clips *[]Clip
@@ -171,4 +171,57 @@ func NewTrack() *Track {
 
 func (t *Track) SetClips(clips *[]Clip) *Track {
 	return &Track{Clips: clips}
+}
+
+// clip
+func NewClip() *Clip {
+	return &Clip{}
+}
+
+func (c *Clip) SetAsset(asset *Asset) *Clip {
+	return &Clip{Asset: asset}
+}
+
+func (c *Clip) SetStart(start int) *Clip {
+	return &Clip{Start: start}
+}
+
+func (c *Clip) SetLength(length int) *Clip {
+	return &Clip{Length: length}
+}
+
+func (c *Clip) SetFit(fit string) *Clip {
+	return &Clip{Fit: fit}
+}
+
+func (c *Clip) SetScale(scale int) *Clip {
+	return &Clip{Scale: scale}
+}
+
+func (c *Clip) SetPosition(pos string) *Clip {
+	return &Clip{Position: pos}
+}
+
+func (c *Clip) SetOffset(offset *Offset) *Clip {
+	return &Clip{Offset: offset}
+}
+
+func (c *Clip) SetTransition(transition *Transition) *Clip {
+	return &Clip{Transition: transition}
+}
+
+func (c *Clip) SetEffect(effect string) *Clip {
+	return &Clip{Effect: effect}
+}
+
+func (c *Clip) SetFilter(filter string) *Clip {
+	return &Clip{Filter: filter}
+}
+
+func (c *Clip) SetOpacity(opacity int8) *Clip {
+	return &Clip{Opacity: opacity}
+}
+
+func (c *Clip) SetTransform(transform *Transform) *Clip {
+	return &Clip{Transform: transform}
 }
