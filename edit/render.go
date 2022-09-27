@@ -89,10 +89,15 @@ type VideoAssetType struct {
 	Volume int8
 	Crop   *Crop
 }
+
+type ImageAssetType struct {
+	src  string
+	Crop *Crop
+}
 type Asset struct {
 	Type       AssetType
 	VideoAsset *VideoAssetType
-	ImageAsset *ImageAsset
+	ImageAsset *ImageAssetType
 	TitleAsset *TitleAsset
 	HtmlAsset  *HtmlAsset
 	AudioAsset *AudioAsset
