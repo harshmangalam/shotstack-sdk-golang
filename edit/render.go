@@ -77,9 +77,15 @@ type Font struct {
 	Src string
 }
 
+type VideoAssetField struct {
+	Src    string
+	Trim   int
+	Volume int8
+	Crop   *Crop
+}
 type Asset struct {
 	Type       AssetType
-	VideoAsset *VideoAsset
+	VideoAsset *VideoAssetField
 	ImageAsset *ImageAsset
 	TitleAsset *TitleAsset
 	HtmlAsset  *HtmlAsset
