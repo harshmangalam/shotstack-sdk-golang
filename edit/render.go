@@ -194,36 +194,44 @@ type Edit struct {
 }
 
 func NewOutput() *Output {
-	return &Output{}
+	o := new(Output)
+	return o
 }
 
-func NewMerges() *[]Merge {
-	return &[]Merge{}
+func NewMerge() *Merge {
+	m := new(Merge)
+	return m
 }
 
 // edit
 func NewEdit() *Edit {
-	return &Edit{}
+	e := new(Edit)
+	return e
 }
 
 func (e *Edit) SetTimeline(timeline *Timeline) *Edit {
-	return &Edit{Timeline: timeline}
+	e.Timeline = timeline
+	return e
 }
 
 func (e *Edit) SetOutput(output *Output) *Edit {
-	return &Edit{Output: output}
+	e.Output = output
+	return e
 }
 
 func (e *Edit) SetMerges(merges *[]Merge) *Edit {
-	return &Edit{Merges: merges}
+	e.Merges = merges
+	return e
 }
 
 func (e *Edit) SetCallback(callback string) *Edit {
-	return &Edit{Callback: callback}
+	e.Callback = callback
+	return e
 }
 
 func (e *Edit) SetDisk(disk Disk) *Edit {
-	return &Edit{Disk: disk}
+	e.Disk = disk
+	return e
 }
 
 // timeline
