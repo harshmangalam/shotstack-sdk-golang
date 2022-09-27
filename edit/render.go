@@ -152,3 +152,13 @@ func (s *SoundTrack) SetEffect(effect SoundTrackEffect) *SoundTrack {
 func (s *SoundTrack) SetVolume(volume int8) *SoundTrack {
 	return &SoundTrack{Volume: volume}
 }
+
+// font
+
+func NewFont() *Font {
+	return &Font{}
+}
+
+func (f *Font) SetSrc(src string) *Font {
+	return &Font{Src: src}
+}
