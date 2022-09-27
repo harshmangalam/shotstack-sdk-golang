@@ -126,7 +126,7 @@ type HtmlAssetType struct {
 type AudioAssetType struct {
 	Src    string
 	Trim   int
-	Volume int8
+	Volume float32
 	Effect AudioEffect
 }
 
@@ -393,6 +393,27 @@ func (v *VideoAssetType) SetVideoAssetVolume(vol float32) *VideoAssetType {
 
 func (v *VideoAssetType) SetVideoAssetCrop(crop *Crop) *VideoAssetType {
 	return &VideoAssetType{Crop: crop}
+}
+
+// audio asset
+
+func NewAudio() *AudioAssetType {
+	return &AudioAssetType{}
+}
+
+func (*AudioAssetType) SetAudioSrc(src string) *AudioAssetType {
+	return &AudioAssetType{Src: src}
+}
+func (*AudioAssetType) SetAudioTrim(trim int) *AudioAssetType {
+	return &AudioAssetType{Trim: trim}
+}
+
+func (*AudioAssetType) SetAudioVolume(vol float32) *AudioAssetType {
+	return &AudioAssetType{Volume: vol}
+}
+
+func (*AudioAssetType) SetAudioEffect(effect AudioEffect) *AudioAssetType {
+	return &AudioAssetType{Effect: effect}
 }
 
 // offset
