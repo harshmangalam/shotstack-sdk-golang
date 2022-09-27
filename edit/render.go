@@ -152,9 +152,6 @@ type Offset struct {
 type Transform struct {
 }
 
-type Transition struct {
-}
-
 type Clip struct {
 	Asset      *Asset
 	Start      int

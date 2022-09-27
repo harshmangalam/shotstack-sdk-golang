@@ -1,27 +1,32 @@
 package edit
 
-type TransitionIn string
+type TransitionType string
 
 const (
-	TransitionFade               TransitionIn = "fade"
-	TransitionReveal             TransitionIn = "fade"
-	TransitionWipeLeft           TransitionIn = "wipeLeft"
-	TransitionWipeRight          TransitionIn = "wipeRight"
-	TransitionSlideLeft          TransitionIn = "slideLeft"
-	TransitionSlideRight         TransitionIn = "slideRight"
-	TransitionSlideUp            TransitionIn = "slideUp"
-	TransitionSlideDown          TransitionIn = "slideDown"
-	TransitionCarouselLeft       TransitionIn = "carouselLeft"
-	TransitionCarouselRight      TransitionIn = "carouselRight"
-	TransitionCarouselUp         TransitionIn = "carouselUp"
-	TransitionCarouselDown       TransitionIn = "carouselDown"
-	TransitionShuffleTopRight    TransitionIn = "shuffleTopRight"
-	TransitionShuffleRightBottom TransitionIn = "shuffleRightBottom"
-	TransitionShuffleBottomRight TransitionIn = "shuffleBottomRight"
-	TransitionShuffleBottomLeft  TransitionIn = "shuffleBottomLeft"
-	TransitionShuffleRightTop    TransitionIn = "shuffleRightTop"
-	TransitionShuffleLeftBottom  TransitionIn = "shuffleLeftBottom"
-	TransitionShuffleLeftTop     TransitionIn = "shuffleLeftTop"
-	TransitionZoom               TransitionIn = "zoom"
-	TransitionShuffleTopLeft     TransitionIn = "shuffleTopLeft"
+	TransitionFade               TransitionType = "fade"
+	TransitionReveal             TransitionType = "fade"
+	TransitionWipeLeft           TransitionType = "wipeLeft"
+	TransitionWipeRight          TransitionType = "wipeRight"
+	TransitionSlideLeft          TransitionType = "slideLeft"
+	TransitionSlideRight         TransitionType = "slideRight"
+	TransitionSlideUp            TransitionType = "slideUp"
+	TransitionSlideDown          TransitionType = "slideDown"
+	TransitionCarouselLeft       TransitionType = "carouselLeft"
+	TransitionCarouselRight      TransitionType = "carouselRight"
+	TransitionCarouselUp         TransitionType = "carouselUp"
+	TransitionCarouselDown       TransitionType = "carouselDown"
+	TransitionShuffleTopRight    TransitionType = "shuffleTopRight"
+	TransitionShuffleRightBottom TransitionType = "shuffleRightBottom"
+	TransitionShuffleBottomRight TransitionType = "shuffleBottomRight"
+	TransitionShuffleBottomLeft  TransitionType = "shuffleBottomLeft"
+	TransitionShuffleRightTop    TransitionType = "shuffleRightTop"
+	TransitionShuffleLeftBottom  TransitionType = "shuffleLeftBottom"
+	TransitionShuffleLeftTop     TransitionType = "shuffleLeftTop"
+	TransitionZoom               TransitionType = "zoom"
+	TransitionShuffleTopLeft     TransitionType = "shuffleTopLeft"
 )
+
+type Transition struct {
+	In  TransitionType
+	Out TransitionType
+}
