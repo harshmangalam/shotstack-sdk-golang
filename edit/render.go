@@ -232,7 +232,7 @@ func (c *Clip) SetLength(length int) *Clip {
 	return &Clip{Length: length}
 }
 
-func (c *Clip) SetFit(fit string) *Clip {
+func (c *Clip) SetFit(fit ClipFit) *Clip {
 	return &Clip{Fit: fit}
 }
 
@@ -240,7 +240,7 @@ func (c *Clip) SetScale(scale int) *Clip {
 	return &Clip{Scale: scale}
 }
 
-func (c *Clip) SetPosition(pos string) *Clip {
+func (c *Clip) SetPosition(pos ClipPosition) *Clip {
 	return &Clip{Position: pos}
 }
 
@@ -252,7 +252,7 @@ func (c *Clip) SetTransition(transition *Transition) *Clip {
 	return &Clip{Transition: transition}
 }
 
-func (c *Clip) SetEffect(effect string) *Clip {
+func (c *Clip) SetEffect(effect ClipEffect) *Clip {
 	return &Clip{Effect: effect}
 }
 
