@@ -4,6 +4,7 @@ type SoundTrackEffect string
 type Disk string
 type ClipFilter string
 type ClipEffect string
+type ClipPosition string
 
 const (
 	FadeIn        SoundTrackEffect = "fadeIn"
@@ -35,6 +36,18 @@ const (
 	slideDown  ClipEffect = "slideDown"
 )
 
+const (
+	top         ClipPosition = "top"
+	topRight    ClipPosition = "topRight"
+	right       ClipPosition = "right"
+	bottomRight ClipPosition = "bottomRight"
+	bottom      ClipPosition = "bottom"
+	bottomLeft  ClipPosition = "bottomLeft"
+	left        ClipPosition = "left"
+	topLeft     ClipPosition = "topLeft"
+	center      ClipPosition = "center"
+)
+
 type SoundTrack struct {
 	Src    string
 	Effect SoundTrackEffect
@@ -63,7 +76,7 @@ type Clip struct {
 	Length     int
 	Fit        string
 	Scale      int
-	Position   string
+	Position   ClipPosition
 	Offset     *Offset
 	Transition *Transition
 	Effect     ClipEffect
