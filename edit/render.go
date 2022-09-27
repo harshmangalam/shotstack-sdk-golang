@@ -78,7 +78,13 @@ type Font struct {
 }
 
 type Asset struct {
-	Type AssetType
+	Type       AssetType
+	VideoAsset *VideoAsset
+	ImageAsset *ImageAsset
+	TitleAsset *TitleAsset
+	HtmlAsset  *HtmlAsset
+	AudioAsset *AudioAsset
+	LumaAsset  *LumaAsset
 }
 
 type Offset struct {
