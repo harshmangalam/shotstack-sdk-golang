@@ -51,7 +51,7 @@ type Clip struct {
 	Transform
 }
 type Track struct {
-	Clips []Clip
+	Clips *[]Clip
 }
 
 type Timeline struct {
@@ -161,4 +161,14 @@ func NewFont() *Font {
 
 func (f *Font) SetSrc(src string) *Font {
 	return &Font{Src: src}
+}
+
+// track
+
+func NewTrack() *Track {
+	return &Track{}
+}
+
+func (t *Track) SetClips(clips *[]Clip) *Track {
+	return &Track{Clips: clips}
 }
