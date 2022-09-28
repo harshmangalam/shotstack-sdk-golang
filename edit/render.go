@@ -112,11 +112,6 @@ type Crop struct {
 	Right  float32
 }
 
-type Offset struct {
-	X float32
-	Y float32
-}
-
 type Output struct {
 }
 
@@ -171,25 +166,3 @@ func (e *Edit) SetDisk(disk Disk) *Edit {
 	e.Disk = disk
 	return e
 }
-
-//  asset
-
-// offset
-
-func NewOffset() *Offset {
-	return new(Offset)
-}
-
-func (o *Offset) SetX(x float32) *Offset {
-	o.X = x
-	return o
-}
-
-func (o *Offset) SetY(y float32) *Offset {
-	o.Y = y
-	return o
-}
-
-// transition
-
-// transform
