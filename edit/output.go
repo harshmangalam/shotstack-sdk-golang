@@ -36,7 +36,7 @@ const (
 	High   MediaQuality = "high"
 )
 
-type Size struct {
+type OutputSize struct {
 	Width  int `json:"width"`
 	Height int `json:"height"`
 }
@@ -59,7 +59,7 @@ type Output struct {
 	Format       MediaFileType    `json:"format"`
 	Resolution   MediaResolution  `json:"resolution"`
 	AspectRatio  MediaAspectRatio `json:"aspectRatio"`
-	Size         *Size            `json:"size"`
+	Size         *OutputSize      `json:"size"`
 	Fps          float32          `json:"fps"`
 	ScaleTo      string           `json:"scaleTo"`
 	Quality      MediaQuality     `json:"quality"`
@@ -89,7 +89,7 @@ func (o *Output) SetAspectRatio(ratio MediaAspectRatio) *Output {
 	return o
 }
 
-func (o *Output) SetSize(size *Size) *Output {
+func (o *Output) SetSize(size *OutputSize) *Output {
 	o.Size = size
 	return o
 }
@@ -136,16 +136,16 @@ func (o *Output) SetDestinations(dest *[]Destination) *Output {
 
 // size
 
-func NewSize() *Size {
-	return new(Size)
+func NewSize() *OutputSize {
+	return new(OutputSize)
 }
 
-func (s *Size) SetWidth(width int) *Size {
+func (s *OutputSize) SetWidth(width int) *OutputSize {
 	s.Width = width
 	return s
 }
 
-func (s *Size) SetHeight(height int) *Size {
+func (s *OutputSize) SetHeight(height int) *OutputSize {
 	s.Height = height
 	return s
 }
