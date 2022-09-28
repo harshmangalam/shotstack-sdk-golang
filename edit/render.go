@@ -101,15 +101,16 @@ type Crop struct {
 type Edit struct {
 	Timeline *Timeline `json:"timeline"`
 	Output   *Output   `json:"output"`
-	Merge    *[]Merge  `json:"merge"`
-	Callback string    `json:"callback"`
-	Disk     Disk      `json:"disk"`
+	Merge    *[]Merge  `json:"merge,omitempty"`
+	Callback string    `json:"callback,omitempty"`
+	Disk     Disk      `json:"disk,omitempty"`
 }
 
 // edit
 func NewEdit() *Edit {
 	e := new(Edit)
 	return e
+
 }
 
 func (e *Edit) SetTimeline(timeline *Timeline) *Edit {
