@@ -1,6 +1,7 @@
 package edit
 
 type MediaFileType string
+type MediaResolution string
 
 const (
 	Mp4 MediaFileType = "mp4"
@@ -11,6 +12,14 @@ const (
 	Mp3 MediaFileType = "mp3"
 )
 
+const (
+	ResolutionPreview MediaResolution = "preview"
+	ResolutionMobile  MediaResolution = "mobile"
+	ResolutionSd      MediaResolution = "sd"
+	ResolutionHd      MediaResolution = "hd"
+	Resolution1080    MediaResolution = "1080"
+)
+
 type Size struct{}
 type Poster struct{}
 type Range struct{}
@@ -19,7 +28,7 @@ type Destination struct{}
 
 type Output struct {
 	Format       MediaFileType
-	Resolution   string
+	Resolution   MediaResolution
 	AspectRatio  string
 	Size         *Size
 	Fps          float32
@@ -41,7 +50,7 @@ func (o *Output) SetFormat(format MediaFileType) *Output {
 	return o
 }
 
-func (o *Output) SetResolution(resol string) *Output {
+func (o *Output) SetResolution(resol MediaResolution) *Output {
 	o.Resolution = resol
 	return o
 }
