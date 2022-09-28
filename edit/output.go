@@ -40,7 +40,9 @@ type Size struct {
 	Width  int
 	Height int
 }
-type Poster struct{}
+type Poster struct {
+	Capture int
+}
 type Range struct {
 	Start  float32
 	Length float32
@@ -157,4 +159,13 @@ func (r *Range) SetStart(start float32) *Range {
 func (r *Range) SetLength(length float32) *Range {
 	r.Length = length
 	return r
+}
+
+func NewPoster() *Poster {
+	return new(Poster)
+}
+
+func (p *Poster) SetCapture(capture int) *Poster {
+	p.Capture = capture
+	return p
 }
