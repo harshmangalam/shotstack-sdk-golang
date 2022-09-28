@@ -112,9 +112,6 @@ type Crop struct {
 	Right  float32
 }
 
-type Output struct {
-}
-
 type Merge struct {
 }
 
