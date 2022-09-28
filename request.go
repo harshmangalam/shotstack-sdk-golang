@@ -23,12 +23,40 @@ type Request struct {
 	Config *Config   `json:"config"`
 }
 
-func PostRequest(req *Request) ([]byte, error) {
-	BaseUrl := fmt.Sprintf("https://api.shotstack.io/%v", req.Config.ApiKey)
+func NewRequest() *Request {
+	return new(Request)
+}
+
+func (req *Request) SetMethod(method ReqMethod) *Request {
+	req.Method = method
+	return req
+}
+func (req *Request) SetData(data any) *Request {
+	req.Data = data
+	return req
+}
+
+func (req *Request) SetPath(path string) *Request {
+	req.Path = path
+	return req
+}
+
+func (req *Request) SetConfig(config *Config) *Request {
+	req.Config = config
+	return req
+}
+
+func (req *Request) Send() ([]byte, error) {
+	BaseUrl := fmt.Sprintf("https://api.shotstack.io/%v", req.Config.Env)
 
 	switch req.Method {
 	case POST:
-		Url := fmt.Sprintf(BaseUrl + req.Path)
+		d, err := json.MarshalIndent(req, "", "   ")
+		fmt.Println(string(d))
+
+		Url := BaseUrl + req.Path
+
+		fmt.Println(Url)
 		jsonData, err := json.MarshalIndent(req.Data, "", "   ")
 		if err != nil {
 			return nil, err

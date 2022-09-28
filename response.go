@@ -5,7 +5,7 @@ type QueuedResponseData struct {
 	Id      string `json:"id"`
 }
 type QueuedResponse struct {
-	Success  string `json:"success"`
+	Success  bool   `json:"success"`
 	Message  string `json:"message"`
 	Response QueuedResponseData
 }
