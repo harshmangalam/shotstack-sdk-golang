@@ -3,6 +3,7 @@ package edit
 type MediaFileType string
 type MediaResolution string
 type MediaAspectRatio string
+type MediaQuality string
 
 const (
 	Mp4 MediaFileType = "mp4"
@@ -29,6 +30,12 @@ const (
 	LegacyRatio     MediaAspectRatio = "4:3"
 )
 
+const (
+	Low    MediaQuality = "low"
+	Medium MediaQuality = "medium"
+	High   MediaQuality = "high"
+)
+
 type Size struct {
 	Width  int
 	Height int
@@ -45,7 +52,7 @@ type Output struct {
 	Size         *Size
 	Fps          float32
 	ScaleTo      string
-	Quality      string
+	Quality      MediaQuality
 	Repeat       bool
 	Range        *Range
 	Poster       *Poster
@@ -87,7 +94,7 @@ func (o *Output) SetScaleTo(scaleTo string) *Output {
 	return o
 }
 
-func (o *Output) SetQuality(quality string) *Output {
+func (o *Output) SetQuality(quality MediaQuality) *Output {
 	o.Quality = quality
 	return o
 }
