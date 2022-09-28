@@ -1,9 +1,9 @@
 package edit
 
 type SoundTrack struct {
-	Src    string
-	Effect AudioEffect
-	Volume float32
+	Src    string      `json:"src"`
+	Effect AudioEffect `json:"effect"`
+	Volume float32     `json:"volume"`
 }
 
 func NewSoundTrack() *SoundTrack {

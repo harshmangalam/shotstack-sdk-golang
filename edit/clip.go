@@ -1,18 +1,18 @@
 package edit
 
 type Clip struct {
-	Asset      *Asset
-	Start      int
-	Length     int
-	Fit        ClipFit
-	Scale      int
-	Position   Position
-	Offset     *Offset
-	Transition *Transition
-	Effect     ClipEffect
-	Filter     ClipFilter
-	Opacity    int8
-	Transform  *Transform
+	Asset      *Asset      `json:"asset"`
+	Start      int         `json:"start"`
+	Length     int         `json:"length"`
+	Fit        ClipFit     `json:"fit"`
+	Scale      int         `json:"scale"`
+	Position   Position    `json:"position"`
+	Offset     *Offset     `json:"offset"`
+	Transition *Transition `json:"transition"`
+	Effect     ClipEffect  `json:"effect"`
+	Filter     ClipFilter  `json:"filter"`
+	Opacity    int8        `json:"opacity"`
+	Transform  *Transform  `json:"transform"`
 }
 
 func NewClip() *Clip {

@@ -1,10 +1,10 @@
 package edit
 
 type AudioAssetType struct {
-	Src    string
-	Trim   int
-	Volume float32
-	Effect AudioEffect
+	Src    string      `json:"src"`
+	Trim   int         `json:"trim"`
+	Volume float32     `json:"volume"`
+	Effect AudioEffect `json:"effect"`
 }
 
 func NewAudioAsset() *AudioAssetType {

@@ -37,37 +37,37 @@ const (
 )
 
 type Size struct {
-	Width  int
-	Height int
+	Width  int `json:"width"`
+	Height int `json:"height"`
 }
 type Poster struct {
-	Capture int
+	Capture int `json:"capture"`
 }
 type Range struct {
-	Start  float32
-	Length float32
+	Start  float32 `json:"start"`
+	Length float32 `json:"length"`
 }
 type Thumbnail struct {
-	Capture int
-	Scale   int
+	Capture int `json:"capture"`
+	Scale   int `json:"scale"`
 }
 
 // default shotstack complete later
 type Destination struct{}
 
 type Output struct {
-	Format       MediaFileType
-	Resolution   MediaResolution
-	AspectRatio  MediaAspectRatio
-	Size         *Size
-	Fps          float32
-	ScaleTo      string
-	Quality      MediaQuality
-	Repeat       bool
-	Range        *Range
-	Poster       *Poster
-	Thumbnail    *Thumbnail
-	Destinations *[]Destination
+	Format       MediaFileType    `json:"format"`
+	Resolution   MediaResolution  `json:"resolution"`
+	AspectRatio  MediaAspectRatio `json:"aspectRatio"`
+	Size         *Size            `json:"size"`
+	Fps          float32          `json:"fps"`
+	ScaleTo      string           `json:"scaleTo"`
+	Quality      MediaQuality     `json:"quality"`
+	Repeat       bool             `json:"repeat"`
+	Range        *Range           `json:"range"`
+	Poster       *Poster          `json:"poster"`
+	Thumbnail    *Thumbnail       `json:"thumbnail"`
+	Destinations *[]Destination   `json:"destinations"`
 }
 
 func NewOutput() *Output {

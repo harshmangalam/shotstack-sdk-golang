@@ -1,8 +1,8 @@
 package edit
 
 type LumaAssetType struct {
-	Src  string
-	Trim int
+	Src  string `json:"src"`
+	Trim int    `json:"trim"`
 }
 
 func NewLumaAsset() *LumaAssetType {

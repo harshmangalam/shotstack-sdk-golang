@@ -1,7 +1,7 @@
 package edit
 
 type Track struct {
-	Clips *[]Clip
+	Clips *[]Clip `json:"clips"`
 }
 
 func NewTrack() *Track {

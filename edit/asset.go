@@ -1,13 +1,24 @@
 package edit
 
+type AssetType string
+
+const (
+	VideoAsset AssetType = "video"
+	ImageAsset AssetType = "image"
+	TitleAsset AssetType = "title"
+	HtmlAsset  AssetType = "html"
+	AudioAsset AssetType = "audio"
+	LumaAsset  AssetType = "luma"
+)
+
 type Asset struct {
-	Type       AssetType
-	VideoAsset *VideoAssetType
-	ImageAsset *ImageAssetType
-	TitleAsset *TitleAssetType
-	HtmlAsset  *HtmlAssetType
-	AudioAsset *AudioAssetType
-	LumaAsset  *LumaAssetType
+	Type       AssetType       `json:"type"`
+	VideoAsset *VideoAssetType `json:"videoAsset"`
+	ImageAsset *ImageAssetType `json:"imageAsset"`
+	TitleAsset *TitleAssetType `json:"titleAsset"`
+	HtmlAsset  *HtmlAssetType  `json:"htmlAsset"`
+	AudioAsset *AudioAssetType `json:"audioAsset"`
+	LumaAsset  *LumaAssetType  `json:"lumaAsset"`
 }
 
 func NewAsset() *Asset {

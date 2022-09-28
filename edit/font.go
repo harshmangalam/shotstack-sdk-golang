@@ -1,7 +1,7 @@
 package edit
 
 type Font struct {
-	Src string
+	Src string `json:"src"`
 }
 
 func NewFont() *Font {

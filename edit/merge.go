@@ -1,8 +1,8 @@
 package edit
 
 type Merge struct {
-	Find    string
-	Replace any
+	Find    string `json:"find"`
+	Replace any    `json:"replace"`
 }
 
 func NewMerge() *Merge {

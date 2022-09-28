@@ -1,8 +1,8 @@
 package edit
 
 type Transition struct {
-	In  TransitionType
-	Out TransitionType
+	In  TransitionType `json:"in"`
+	Out TransitionType `json:"out"`
 }
 
 func NewTransition() *Transition {

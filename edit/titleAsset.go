@@ -1,8 +1,8 @@
 package edit
 
 type TitleAssetType struct {
-	Text  string
-	Style TitleAssetStyle
+	Text  string          `json:"text"`
+	Style TitleAssetStyle `json:"style"`
 }
 
 func NewTitleAsset() *TitleAssetType {

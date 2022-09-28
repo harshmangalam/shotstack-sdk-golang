@@ -1,8 +1,8 @@
 package edit
 
 type Offset struct {
-	X float32
-	Y float32
+	X float32 `json:"x"`
+	Y float32 `json:"y"`
 }
 
 func NewOffset() *Offset {

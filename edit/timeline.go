@@ -1,11 +1,11 @@
 package edit
 
 type Timeline struct {
-	SoundTrack *SoundTrack
-	Background string
-	Fonts      *[]Font
-	Tracks     *[]Track
-	Cache      bool
+	SoundTrack *SoundTrack `json:"soundtrack"`
+	Background string      `json:"background"`
+	Fonts      *[]Font     `json:"fonts"`
+	Tracks     *[]Track    `json:"tracks"`
+	Cache      bool        `json:"cache"`
 }
 
 func NewTimeline() *Timeline {

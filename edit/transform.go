@@ -1,22 +1,22 @@
 package edit
 
 type RotateTransform struct {
-	Angle int
+	Angle int `json:"angle"`
 }
 
 type SkewTransform struct {
-	X float32
-	Y float32
+	X float32 `json:"x"`
+	Y float32 `json:"y"`
 }
 
 type FlipTransform struct {
-	Horizontal bool
-	Vertical   bool
+	Horizontal bool `json:"horizontal"`
+	Vertical   bool `json:"vertical"`
 }
 type Transform struct {
-	Rotate *RotateTransform
-	Skew   *SkewTransform
-	Flip   *FlipTransform
+	Rotate *RotateTransform `json:"rotate"`
+	Skew   *SkewTransform   `json:"skew"`
+	Flip   *FlipTransform   `json:"flip"`
 }
 
 func NewTransform() *Transform {

@@ -13,7 +13,6 @@ type ClipEffect string
 type Position string
 type ClipFit string
 type TitleAssetStyle string
-type AssetType string
 type TransitionType string
 
 const (
@@ -63,15 +62,6 @@ const (
 	FitContain ClipFit = "contain"
 	FitCrop    ClipFit = "crop"
 	FitNone    ClipFit = "none"
-)
-
-const (
-	VideoAsset AssetType = "video"
-	ImageAsset AssetType = "image"
-	TitleAsset AssetType = "title"
-	HtmlAsset  AssetType = "html"
-	AudioAsset AssetType = "audio"
-	LumaAsset  AssetType = "luma"
 )
 
 const (
