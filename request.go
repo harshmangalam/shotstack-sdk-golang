@@ -47,37 +47,54 @@ func (req *Request) SetConfig(config *Config) *Request {
 }
 
 func (req *Request) Send() ([]byte, error) {
-	BaseUrl := fmt.Sprintf("https://api.shotstack.io/%v", req.Config.Env)
+	Url := fmt.Sprintf("https://api.shotstack.io/%v/%v", req.Config.Env, req.Path)
+	headers := map[string][]string{
+		"Content-Type": {"application/json"},
+		"Accept":       {"application/json"},
+		"x-api-key":    {req.Config.ApiKey},
+	}
+	client := &http.Client{}
 
 	switch req.Method {
+	case GET:
+		httpReq, err := http.NewRequest(http.MethodGet, Url, nil)
+
+		if err != nil {
+			return nil, err
+		}
+		httpReq.Header = headers
+		resp, err := client.Do(httpReq)
+
+		if err != nil {
+			return nil, err
+		}
+
+		defer resp.Body.Close()
+
+		bodyBytes, err := ioutil.ReadAll(resp.Body)
+
+		if err != nil {
+			return nil, err
+		}
+
+		return bodyBytes, nil
+
 	case POST:
-		d, err := json.MarshalIndent(req, "", "   ")
-		fmt.Println(string(d))
 
-		Url := BaseUrl + req.Path
-
-		fmt.Println(Url)
 		jsonData, err := json.MarshalIndent(req.Data, "", "   ")
 		if err != nil {
 			return nil, err
 		}
 		fmt.Println(string(jsonData))
 
-		headers := map[string][]string{
-			"Content-Type": {"application/json"},
-			"Accept":       {"application/json"},
-			"x-api-key":    {req.Config.ApiKey},
-		}
-
 		buff := bytes.NewBuffer(jsonData)
-		httpReq, err := http.NewRequest(string(POST), Url, buff)
+		httpReq, err := http.NewRequest(http.MethodPost, Url, buff)
 
 		if err != nil {
 			return nil, err
 		}
 		httpReq.Header = headers
 
-		client := &http.Client{}
 		resp, err := client.Do(httpReq)
 
 		if err != nil {
