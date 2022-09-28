@@ -123,11 +123,6 @@ type Edit struct {
 	Disk     Disk // "local" | "mount"
 }
 
-func NewOutput() *Output {
-	o := new(Output)
-	return o
-}
-
 func NewMerge() *Merge {
 	m := new(Merge)
 	return m
