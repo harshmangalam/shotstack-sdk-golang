@@ -1,5 +1,13 @@
 package edit
 
+type AudioEffect string
+
+const (
+	FadeIn        AudioEffect = "fadeIn"
+	FadeOut       AudioEffect = "fadeOut"
+	FadeInFadeOut AudioEffect = "fadeInFadeOut"
+)
+
 type AudioAssetType struct {
 	Type   string      `json:"type"`
 	Src    string      `json:"src"`
