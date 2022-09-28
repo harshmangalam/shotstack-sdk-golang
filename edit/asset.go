@@ -1,10 +1,5 @@
 package edit
 
-type TitleAssetType struct {
-	Text  string
-	Style TitleAssetStyle
-}
-
 type HtmlAssetType struct {
 	Html       string
 	Css        string
