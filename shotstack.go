@@ -1,8 +1,15 @@
 package shotstacksdkgolang
 
+type EnvType string
+
+const (
+	Prod  EnvType = "production"
+	Stage EnvType = "stage"
+)
+
 type Config struct {
 	ApiKey string
-	Env    string
+	Env    EnvType
 }
 
 func NewConfig() *Config {
@@ -14,7 +21,7 @@ func (c *Config) SetApiKey(apiKey string) *Config {
 	return c
 }
 
-func (c *Config) SetEnv(env string) *Config {
+func (c *Config) SetEnv(env EnvType) *Config {
 	c.Env = env
 	return c
 }
