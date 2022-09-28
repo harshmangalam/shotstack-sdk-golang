@@ -1,20 +1,23 @@
 package edit
 
-type LumaAssetType struct {
+type LumaAsset struct {
+	Type string `json:"type"`
 	Src  string `json:"src"`
-	Trim int    `json:"trim"`
+	Trim int    `json:"trim,omitempty"`
 }
 
-func NewLumaAsset() *LumaAssetType {
-	return new(LumaAssetType)
+func NewLumaAsset() *LumaAsset {
+	l := new(LumaAsset)
+	l.Type = "luma"
+	return l
 }
 
-func (l *LumaAssetType) SetSrc(src string) *LumaAssetType {
+func (l *LumaAsset) SetSrc(src string) *LumaAsset {
 	l.Src = src
 	return l
 }
 
-func (l *LumaAssetType) SetTrim(trim int) *LumaAssetType {
+func (l *LumaAsset) SetTrim(trim int) *LumaAsset {
 	l.Trim = trim
 	return l
 }
