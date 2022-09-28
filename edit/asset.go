@@ -1,9 +1,5 @@
 package edit
 
-type LumaAssetType struct {
-	Src  string
-	Trim int
-}
 type Asset struct {
 	Type       AssetType
 	VideoAsset *VideoAssetType
