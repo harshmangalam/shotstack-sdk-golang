@@ -175,6 +175,9 @@ func (p *Poster) SetCapture(capture int) *Poster {
 
 // thumbnail
 
+func NewThumbnail() *Thumbnail {
+	return new(Thumbnail)
+}
 func (t *Thumbnail) SetCapture(capture int) *Thumbnail {
 	t.Capture = capture
 	return t
