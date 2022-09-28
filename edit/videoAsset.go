@@ -1,6 +1,7 @@
 package edit
 
 type VideoAssetType struct {
+	Type   string
 	Src    string  `json:"src"`
 	Trim   int     `json:"trim"`
 	Volume float32 `json:"volume"`
@@ -9,6 +10,7 @@ type VideoAssetType struct {
 
 func NewVideoAsset() *VideoAssetType {
 	v := new(VideoAssetType)
+	v.Type = "video"
 	return v
 }
 func (v *VideoAssetType) SetVideoAssetSrc(src string) *VideoAssetType {

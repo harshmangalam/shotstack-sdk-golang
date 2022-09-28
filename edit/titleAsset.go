@@ -16,12 +16,15 @@ const (
 )
 
 type TitleAssetType struct {
+	Type  string          `json:"type"`
 	Text  string          `json:"text"`
 	Style TitleAssetStyle `json:"style"`
 }
 
 func NewTitleAsset() *TitleAssetType {
-	return new(TitleAssetType)
+	t := new(TitleAssetType)
+	t.Type = "title"
+	return t
 }
 
 func (t *TitleAssetType) SetText(text string) *TitleAssetType {

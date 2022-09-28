@@ -1,12 +1,14 @@
 package edit
 
 type ImageAssetType struct {
+	Type string `json:"type"`
 	Src  string `json:"src"`
-	Crop *Crop  `json:"crop"`
+	Crop *Crop  `json:"crop,omitempty"`
 }
 
 func NewImageAsset() *ImageAssetType {
 	i := new(ImageAssetType)
+	i.Type = "image"
 	return i
 }
 
