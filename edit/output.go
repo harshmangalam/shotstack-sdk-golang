@@ -2,6 +2,7 @@ package edit
 
 type MediaFileType string
 type MediaResolution string
+type MediaAspectRatio string
 
 const (
 	Mp4 MediaFileType = "mp4"
@@ -20,6 +21,14 @@ const (
 	Resolution1080    MediaResolution = "1080"
 )
 
+const (
+	DefaultRatio    MediaAspectRatio = "16:9"
+	RevDefaultRatio MediaAspectRatio = "9:16"
+	SquareRatio     MediaAspectRatio = "1:1"
+	ShortRatio      MediaAspectRatio = "4:5"
+	LegacyRatio     MediaAspectRatio = "4:3"
+)
+
 type Size struct{}
 type Poster struct{}
 type Range struct{}
@@ -29,7 +38,7 @@ type Destination struct{}
 type Output struct {
 	Format       MediaFileType
 	Resolution   MediaResolution
-	AspectRatio  string
+	AspectRatio  MediaAspectRatio
 	Size         *Size
 	Fps          float32
 	ScaleTo      string
