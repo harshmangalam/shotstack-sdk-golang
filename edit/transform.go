@@ -37,3 +37,46 @@ func (t *Transform) SetSkew(skew *SkewTransform) *Transform {
 	t.Skew = skew
 	return t
 }
+
+// rotate
+
+func NewRotateTransform() *RotateTransform {
+	return new(RotateTransform)
+}
+
+func (r *RotateTransform) SetAngle(angle int) *RotateTransform {
+	r.Angle = angle
+	return r
+}
+
+// skew
+
+func NewSkewTransform() *SkewTransform {
+	return new(SkewTransform)
+}
+
+func (s *SkewTransform) SetX(x float32) *SkewTransform {
+	s.X = x
+	return s
+}
+
+func (s *SkewTransform) SetY(y float32) *SkewTransform {
+	s.Y = y
+	return s
+}
+
+// flip
+
+func NewFlipTransform() *FlipTransform {
+	return new(FlipTransform)
+}
+
+func (f *FlipTransform) SetHorizontal(h bool) *FlipTransform {
+	f.Horizontal = h
+	return f
+}
+
+func (f *FlipTransform) SetVertical(v bool) *FlipTransform {
+	f.Vertical = v
+	return f
+}
