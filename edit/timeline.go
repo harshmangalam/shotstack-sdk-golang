@@ -1,18 +1,16 @@
 package edit
 
 type Timeline struct {
-	SoundTrack *SoundTrack `json:"soundtrack"`
-	Background string      `json:"background"`
-	Fonts      []Font      `json:"fonts"`
-	Tracks     []Track     `json:"tracks"`
-	Cache      bool        `json:"cache"`
+	SoundTrack *SoundTrack `json:"soundtrack,omitempty"`
+	Background string      `json:"background,omitempty"`
+	Fonts      *[]Font     `json:"fonts,omitempty"`
+	Tracks     *[]Track    `json:"tracks"`
+	Cache      bool        `json:"cache,omitempty"`
 }
 
 func NewTimeline() *Timeline {
-	t := new(Timeline)
-	t.Fonts = []Font{}
-	t.Tracks = []Track{}
-	return t
+	return new(Timeline)
+
 }
 
 func (t *Timeline) SetSoundTrack(soundTrack *SoundTrack) *Timeline {
@@ -25,7 +23,7 @@ func (t *Timeline) SetBackground(background string) *Timeline {
 	return t
 }
 
-func (t *Timeline) SetFonts(fonts []Font) *Timeline {
+func (t *Timeline) SetFonts(fonts *[]Font) *Timeline {
 	t.Fonts = fonts
 	return t
 }
