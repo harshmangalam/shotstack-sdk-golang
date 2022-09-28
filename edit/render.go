@@ -11,7 +11,7 @@ import (
 
 func (e *Edit) PostRender(config *shotstack.Config) (*shotstack.QueuedResponse, error) {
 
-	res, err := shotstack.NewRequest().SetMethod(shotstack.POST).SetPath("/render").SetConfig(config).SetData(e).Send()
+	res, err := shotstack.NewRequest().SetMethod(shotstack.POST).SetPath("render").SetConfig(config).SetData(e).Send()
 
 	if err != nil {
 		fmt.Println(err)
@@ -22,4 +22,16 @@ func (e *Edit) PostRender(config *shotstack.Config) (*shotstack.QueuedResponse, 
 	json.Unmarshal(res, respData)
 	return respData, nil
 
+}
+
+func GetRender(id string, config *shotstack.Config) (any, error) {
+	res, err := shotstack.NewRequest().SetMethod(shotstack.GET).SetPath("render" + "/" + id).SetConfig(config).Send()
+
+	if err != nil {
+		fmt.Println(err)
+	}
+
+	fmt.Println(string(res))
+
+	return "", nil
 }
