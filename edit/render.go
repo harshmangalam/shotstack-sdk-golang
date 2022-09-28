@@ -112,18 +112,18 @@ const (
 )
 
 type Crop struct {
-	Top    float32
-	Bottom float32
-	Left   float32
-	Right  float32
+	Top    float32 `json:"top"`
+	Bottom float32 `json:"bottom"`
+	Left   float32 `json:"left"`
+	Right  float32 `jight:"right"`
 }
 
 type Edit struct {
-	Timeline *Timeline
-	Output   *Output
-	Merges   *[]Merge
-	Callback string
-	Disk     Disk // "local" | "mount"
+	Timeline *Timeline `json:"timeline"`
+	Output   *Output   `json:"output"`
+	Merge    *[]Merge  `json:"merge"`
+	Callback string    `json:"callback"`
+	Disk     Disk      `json:"disk"`
 }
 
 // edit
@@ -142,8 +142,8 @@ func (e *Edit) SetOutput(output *Output) *Edit {
 	return e
 }
 
-func (e *Edit) SetMerges(merges *[]Merge) *Edit {
-	e.Merges = merges
+func (e *Edit) SetMerges(merge *[]Merge) *Edit {
+	e.Merge = merge
 	return e
 }
 
