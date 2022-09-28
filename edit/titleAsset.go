@@ -1,6 +1,7 @@
 package edit
 
 type TitleAssetStyle string
+type TitleSize string
 
 const (
 	Minimal     TitleAssetStyle = "minimal"
@@ -15,12 +16,21 @@ const (
 	Subtitle    TitleAssetStyle = "subtitle"
 )
 
+const (
+	SizeXxSmall TitleSize = "xx-small"
+	SizeXSmall  TitleSize = "x-small"
+	SizeSmall   TitleSize = "small"
+	SizeMedium  TitleSize = "medium"
+	SizeXLarge  TitleSize = "x-large"
+	SizeXxLarge TitleSize = "xx-large"
+)
+
 type TitleAssetType struct {
 	Type       string          `json:"type"`
 	Text       string          `json:"text"`
 	Style      TitleAssetStyle `json:"style,omitempty"`
 	Color      string          `json:"color,omitempty"`
-	Size       string          `json:"size,omitempty"`
+	Size       TitleSize       `json:"size,omitempty"`
 	Background string          `json:"background,omitempty"`
 	Position   string          `json:"position,omitempty"`
 	Offset     *Offset         `json:"offset,omitempty"`
@@ -47,7 +57,7 @@ func (t *TitleAssetType) SetColor(color string) *TitleAssetType {
 	return t
 }
 
-func (t *TitleAssetType) SetSize(size string) *TitleAssetType {
+func (t *TitleAssetType) SetSize(size TitleSize) *TitleAssetType {
 	t.Size = size
 	return t
 }
