@@ -153,9 +153,6 @@ type Clip struct {
 	Opacity    int8
 	Transform  *Transform
 }
-type Track struct {
-	Clips *[]Clip
-}
 
 type Output struct {
 }
@@ -210,18 +207,6 @@ func (e *Edit) SetCallback(callback string) *Edit {
 func (e *Edit) SetDisk(disk Disk) *Edit {
 	e.Disk = disk
 	return e
-}
-
-// track
-
-func NewTrack() *Track {
-	t := new(Track)
-	return t
-}
-
-func (t *Track) SetClips(clips *[]Clip) *Track {
-	t.Clips = clips
-	return t
 }
 
 // clip
