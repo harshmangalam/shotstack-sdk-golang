@@ -51,6 +51,8 @@ type Thumbnail struct {
 	Capture int
 	Scale   int
 }
+
+// default shotstack complete later
 type Destination struct{}
 
 type Output struct {

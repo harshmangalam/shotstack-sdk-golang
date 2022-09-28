@@ -112,20 +112,12 @@ type Crop struct {
 	Right  float32
 }
 
-type Merge struct {
-}
-
 type Edit struct {
 	Timeline *Timeline
 	Output   *Output
 	Merges   *[]Merge
 	Callback string
 	Disk     Disk // "local" | "mount"
-}
-
-func NewMerge() *Merge {
-	m := new(Merge)
-	return m
 }
 
 // edit
