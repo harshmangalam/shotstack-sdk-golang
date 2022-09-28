@@ -139,7 +139,9 @@ func (e *Edit) SetDisk(disk Disk) *Edit {
 
 func (e *Edit) PostRender(config *shotstack.Config) interface{} {
 	Url := fmt.Sprintf("https://api.shotstack.io/%v/render", config.Env)
-	jsonData, err := json.Marshal(e)
+	jsonData, err := json.MarshalIndent(e, "", "   ")
+
+	fmt.Println(string(jsonData))
 
 	if err != nil {
 		panic(err)
