@@ -7,8 +7,8 @@ type ClipEffect string
 type Position string
 type ClipFit string
 type TitleAssetStyle string
-
 type AssetType string
+type TransitionType string
 
 const (
 	FadeIn        AudioEffect = "fadeIn"
@@ -79,6 +79,30 @@ const (
 	Marker      TitleAssetStyle = "marker"
 	Future      TitleAssetStyle = "future"
 	Subtitle    TitleAssetStyle = "subtitle"
+)
+
+const (
+	TransitionFade               TransitionType = "fade"
+	TransitionReveal             TransitionType = "fade"
+	TransitionWipeLeft           TransitionType = "wipeLeft"
+	TransitionWipeRight          TransitionType = "wipeRight"
+	TransitionSlideLeft          TransitionType = "slideLeft"
+	TransitionSlideRight         TransitionType = "slideRight"
+	TransitionSlideUp            TransitionType = "slideUp"
+	TransitionSlideDown          TransitionType = "slideDown"
+	TransitionCarouselLeft       TransitionType = "carouselLeft"
+	TransitionCarouselRight      TransitionType = "carouselRight"
+	TransitionCarouselUp         TransitionType = "carouselUp"
+	TransitionCarouselDown       TransitionType = "carouselDown"
+	TransitionShuffleTopRight    TransitionType = "shuffleTopRight"
+	TransitionShuffleRightBottom TransitionType = "shuffleRightBottom"
+	TransitionShuffleBottomRight TransitionType = "shuffleBottomRight"
+	TransitionShuffleBottomLeft  TransitionType = "shuffleBottomLeft"
+	TransitionShuffleRightTop    TransitionType = "shuffleRightTop"
+	TransitionShuffleLeftBottom  TransitionType = "shuffleLeftBottom"
+	TransitionShuffleLeftTop     TransitionType = "shuffleLeftTop"
+	TransitionZoom               TransitionType = "zoom"
+	TransitionShuffleTopLeft     TransitionType = "shuffleTopLeft"
 )
 
 type Crop struct {
