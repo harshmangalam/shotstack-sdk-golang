@@ -1,16 +1,18 @@
 package edit
 
 type HtmlAssetType struct {
+	Type       string   `json:"type"`
 	Html       string   `json:"html"`
-	Css        string   `json:"css"`
-	Width      int      `json:"width"`
-	Height     int      `json:"height"`
-	Background string   `json:"background"`
-	Position   Position `json:"position"`
+	Css        string   `json:"css,omitempty"`
+	Width      int      `json:"width,omitempty"`
+	Height     int      `json:"height,omitempty"`
+	Background string   `json:"background,omitempty"`
+	Position   Position `json:"position,omitempty"`
 }
 
 func NewHtmlAsset() *HtmlAssetType {
 	h := new(HtmlAssetType)
+	h.Type = "html"
 	return h
 }
 
