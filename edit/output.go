@@ -29,7 +29,10 @@ const (
 	LegacyRatio     MediaAspectRatio = "4:3"
 )
 
-type Size struct{}
+type Size struct {
+	Width  int
+	Height int
+}
 type Poster struct{}
 type Range struct{}
 type Thumbnail struct{}
@@ -64,7 +67,7 @@ func (o *Output) SetResolution(resol MediaResolution) *Output {
 	return o
 }
 
-func (o *Output) SetAspectRatio(ratio string) *Output {
+func (o *Output) SetAspectRatio(ratio MediaAspectRatio) *Output {
 	o.AspectRatio = ratio
 	return o
 }
@@ -112,4 +115,20 @@ func (o *Output) SetThumbnail(thumb *Thumbnail) *Output {
 func (o *Output) SetDestinations(dest *[]Destination) *Output {
 	o.Destinations = dest
 	return o
+}
+
+// size
+
+func NewSize() *Size {
+	return new(Size)
+}
+
+func (s *Size) SetWidth(width int) *Size {
+	s.Width = width
+	return s
+}
+
+func (s *Size) SetHeight(height int) *Size {
+	s.Height = height
+	return s
 }
