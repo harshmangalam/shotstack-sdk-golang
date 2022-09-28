@@ -1,5 +1,11 @@
 package edit
 
+import (
+	"encoding/json"
+
+	shotstack "github.com/harshmangalam/shotstack-sdk-golang"
+)
+
 type AudioEffect string
 type Disk string
 type ClipFilter string
@@ -149,4 +155,15 @@ func (e *Edit) SetCallback(callback string) *Edit {
 func (e *Edit) SetDisk(disk Disk) *Edit {
 	e.Disk = disk
 	return e
+}
+
+func (e *Edit) PostRender(config *shotstack.Config) interface{} {
+
+	data, err := json.Marshal(e)
+
+	if err != nil {
+		panic(err)
+	}
+
+	return string(data)
 }
