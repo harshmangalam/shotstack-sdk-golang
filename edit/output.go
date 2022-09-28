@@ -41,7 +41,10 @@ type Size struct {
 	Height int
 }
 type Poster struct{}
-type Range struct{}
+type Range struct {
+	Start  float32
+	Length float32
+}
 type Thumbnail struct{}
 type Destination struct{}
 
@@ -138,4 +141,20 @@ func (s *Size) SetWidth(width int) *Size {
 func (s *Size) SetHeight(height int) *Size {
 	s.Height = height
 	return s
+}
+
+// range
+
+func NewRange() *Range {
+	return new(Range)
+}
+
+func (r *Range) SetStart(start float32) *Range {
+	r.Start = start
+	return r
+}
+
+func (r *Range) SetLength(length float32) *Range {
+	r.Length = length
+	return r
 }
