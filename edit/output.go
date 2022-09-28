@@ -47,7 +47,10 @@ type Range struct {
 	Start  float32
 	Length float32
 }
-type Thumbnail struct{}
+type Thumbnail struct {
+	Capture int
+	Scale   int
+}
 type Destination struct{}
 
 type Output struct {
@@ -168,4 +171,16 @@ func NewPoster() *Poster {
 func (p *Poster) SetCapture(capture int) *Poster {
 	p.Capture = capture
 	return p
+}
+
+// thumbnail
+
+func (t *Thumbnail) SetCapture(capture int) *Thumbnail {
+	t.Capture = capture
+	return t
+}
+
+func (t *Thumbnail) SetScale(scale int) *Thumbnail {
+	t.Scale = scale
+	return t
 }
