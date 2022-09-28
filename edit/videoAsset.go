@@ -1,11 +1,11 @@
 package edit
 
 type VideoAsset struct {
-	Type   string
+	Type   string  `json:"type"`
 	Src    string  `json:"src"`
-	Trim   int     `json:"trim"`
-	Volume float32 `json:"volume"`
-	Crop   *Crop   `json:"crop"`
+	Trim   int     `json:"trim,omitempty"`
+	Volume float32 `json:"volume,omitempty"`
+	Crop   *Crop   `json:"crop,omitempty"`
 }
 
 func NewVideoAsset() *VideoAsset {
