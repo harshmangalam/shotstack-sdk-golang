@@ -1,7 +1,7 @@
 package edit
 
 type RotateTransform struct {
-	angle int
+	Angle int
 }
 
 type SkewTransform struct {
