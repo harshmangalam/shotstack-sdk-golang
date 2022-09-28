@@ -25,7 +25,7 @@ const (
 	SizeXxLarge TitleSize = "xx-large"
 )
 
-type TitleAssetType struct {
+type TitleAsset struct {
 	Type       string          `json:"type"`
 	Text       string          `json:"text"`
 	Style      TitleAssetStyle `json:"style,omitempty"`
@@ -36,43 +36,43 @@ type TitleAssetType struct {
 	Offset     *Offset         `json:"offset,omitempty"`
 }
 
-func NewTitleAsset() *TitleAssetType {
-	t := new(TitleAssetType)
+func NewTitleAsset() *TitleAsset {
+	t := new(TitleAsset)
 	t.Type = "title"
 	return t
 }
 
-func (t *TitleAssetType) SetText(text string) *TitleAssetType {
+func (t *TitleAsset) SetText(text string) *TitleAsset {
 	t.Text = text
 	return t
 }
 
-func (t *TitleAssetType) SetStyle(style TitleAssetStyle) *TitleAssetType {
+func (t *TitleAsset) SetStyle(style TitleAssetStyle) *TitleAsset {
 	t.Style = style
 	return t
 }
 
-func (t *TitleAssetType) SetColor(color string) *TitleAssetType {
+func (t *TitleAsset) SetColor(color string) *TitleAsset {
 	t.Color = color
 	return t
 }
 
-func (t *TitleAssetType) SetSize(size TitleSize) *TitleAssetType {
+func (t *TitleAsset) SetSize(size TitleSize) *TitleAsset {
 	t.Size = size
 	return t
 }
 
-func (t *TitleAssetType) SetBackground(background string) *TitleAssetType {
+func (t *TitleAsset) SetBackground(background string) *TitleAsset {
 	t.Background = background
 	return t
 }
 
-func (t *TitleAssetType) SetPosition(position string) *TitleAssetType {
+func (t *TitleAsset) SetPosition(position string) *TitleAsset {
 	t.Position = position
 	return t
 }
 
-func (t *TitleAssetType) SetOffset(offset *Offset) *TitleAssetType {
+func (t *TitleAsset) SetOffset(offset *Offset) *TitleAsset {
 	t.Offset = offset
 	return t
 }

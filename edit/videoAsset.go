@@ -1,6 +1,6 @@
 package edit
 
-type VideoAssetType struct {
+type VideoAsset struct {
 	Type   string
 	Src    string  `json:"src"`
 	Trim   int     `json:"trim"`
@@ -8,27 +8,27 @@ type VideoAssetType struct {
 	Crop   *Crop   `json:"crop"`
 }
 
-func NewVideoAsset() *VideoAssetType {
-	v := new(VideoAssetType)
+func NewVideoAsset() *VideoAsset {
+	v := new(VideoAsset)
 	v.Type = "video"
 	return v
 }
-func (v *VideoAssetType) SetVideoAssetSrc(src string) *VideoAssetType {
+func (v *VideoAsset) SetVideoAssetSrc(src string) *VideoAsset {
 	v.Src = src
 	return v
 }
 
-func (v *VideoAssetType) SetVideoAssetTrim(trim int) *VideoAssetType {
+func (v *VideoAsset) SetVideoAssetTrim(trim int) *VideoAsset {
 	v.Trim = trim
 	return v
 }
 
-func (v *VideoAssetType) SetVideoAssetVolume(vol float32) *VideoAssetType {
+func (v *VideoAsset) SetVideoAssetVolume(vol float32) *VideoAsset {
 	v.Volume = vol
 	return v
 }
 
-func (v *VideoAssetType) SetVideoAssetCrop(crop *Crop) *VideoAssetType {
+func (v *VideoAsset) SetVideoAssetCrop(crop *Crop) *VideoAsset {
 	v.Crop = crop
 	return v
 }

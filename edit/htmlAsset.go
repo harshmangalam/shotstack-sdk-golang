@@ -1,6 +1,6 @@
 package edit
 
-type HtmlAssetType struct {
+type HtmlAsset struct {
 	Type       string   `json:"type"`
 	Html       string   `json:"html"`
 	Css        string   `json:"css,omitempty"`
@@ -10,33 +10,33 @@ type HtmlAssetType struct {
 	Position   Position `json:"position,omitempty"`
 }
 
-func NewHtmlAsset() *HtmlAssetType {
-	h := new(HtmlAssetType)
+func NewHtmlAsset() *HtmlAsset {
+	h := new(HtmlAsset)
 	h.Type = "html"
 	return h
 }
 
-func (h *HtmlAssetType) SetHtml(html string) *HtmlAssetType {
+func (h *HtmlAsset) SetHtml(html string) *HtmlAsset {
 	h.Html = html
 	return h
 }
 
-func (h *HtmlAssetType) SetCss(css string) *HtmlAssetType {
+func (h *HtmlAsset) SetCss(css string) *HtmlAsset {
 	h.Css = css
 	return h
 }
 
-func (h *HtmlAssetType) SetHeight(height int) *HtmlAssetType {
+func (h *HtmlAsset) SetHeight(height int) *HtmlAsset {
 	h.Height = height
 	return h
 }
 
-func (h *HtmlAssetType) SetWidth(width int) *HtmlAssetType {
+func (h *HtmlAsset) SetWidth(width int) *HtmlAsset {
 	h.Width = width
 	return h
 }
 
-func (h *HtmlAssetType) SetPosition(pos Position) *HtmlAssetType {
+func (h *HtmlAsset) SetPosition(pos Position) *HtmlAsset {
 	h.Position = pos
 	return h
 }
