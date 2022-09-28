@@ -14,27 +14,27 @@ func NewHtmlAsset() *HtmlAssetType {
 	return h
 }
 
-func (h *HtmlAssetType) SetHtmlAssetHtml(html string) *HtmlAssetType {
+func (h *HtmlAssetType) SetHtml(html string) *HtmlAssetType {
 	h.Html = html
 	return h
 }
 
-func (h *HtmlAssetType) SetHtmlAssetCss(css string) *HtmlAssetType {
+func (h *HtmlAssetType) SetCss(css string) *HtmlAssetType {
 	h.Css = css
 	return h
 }
 
-func (h *HtmlAssetType) SetHtmlAssetHeight(height int) *HtmlAssetType {
+func (h *HtmlAssetType) SetHeight(height int) *HtmlAssetType {
 	h.Height = height
 	return h
 }
 
-func (h *HtmlAssetType) SetHtmlAssetWidth(width int) *HtmlAssetType {
+func (h *HtmlAssetType) SetWidth(width int) *HtmlAssetType {
 	h.Width = width
 	return h
 }
 
-func (h *HtmlAssetType) SetHtmlAssetPosition(pos Position) *HtmlAssetType {
+func (h *HtmlAssetType) SetPosition(pos Position) *HtmlAssetType {
 	h.Position = pos
 	return h
 }
