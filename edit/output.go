@@ -37,37 +37,37 @@ const (
 )
 
 type OutputSize struct {
-	Width  int `json:"width"`
-	Height int `json:"height"`
+	Width  int `json:"width,omitempty"`
+	Height int `json:"height,omitempty"`
 }
 type Poster struct {
 	Capture int `json:"capture"`
 }
 type Range struct {
-	Start  float32 `json:"start"`
-	Length float32 `json:"length"`
+	Start  float32 `json:"start,omitempty"`
+	Length float32 `json:"length,omitempty"`
 }
 type Thumbnail struct {
 	Capture int `json:"capture"`
 	Scale   int `json:"scale"`
 }
 
-// default shotstack complete later
+// TODO:
 type Destination struct{}
 
 type Output struct {
 	Format       MediaFileType    `json:"format"`
-	Resolution   MediaResolution  `json:"resolution"`
-	AspectRatio  MediaAspectRatio `json:"aspectRatio"`
-	Size         *OutputSize      `json:"size"`
-	Fps          float32          `json:"fps"`
-	ScaleTo      string           `json:"scaleTo"`
-	Quality      MediaQuality     `json:"quality"`
-	Repeat       bool             `json:"repeat"`
-	Range        *Range           `json:"range"`
-	Poster       *Poster          `json:"poster"`
-	Thumbnail    *Thumbnail       `json:"thumbnail"`
-	Destinations *[]Destination   `json:"destinations"`
+	Resolution   MediaResolution  `json:"resolution,omitempty"`
+	AspectRatio  MediaAspectRatio `json:"aspectRatio,omitempty"`
+	Size         *OutputSize      `json:"size,omitempty"`
+	Fps          float32          `json:"fps,omitempty"`
+	ScaleTo      string           `json:"scaleTo,omitempty"`
+	Quality      MediaQuality     `json:"quality,omitempty"`
+	Repeat       bool             `json:"repeat,omitempty"`
+	Range        *Range           `json:"range,omitempty"`
+	Poster       *Poster          `json:"poster,omitempty"`
+	Thumbnail    *Thumbnail       `json:"thumbnail,omitempty"`
+	Destinations *[]Destination   `json:"destinations,omitempty"`
 }
 
 func NewOutput() *Output {
