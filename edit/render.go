@@ -1,57 +1,25 @@
 package edit
 
 import (
-	"bytes"
 	"encoding/json"
 	"fmt"
-	"io/ioutil"
-	"net/http"
 
 	shotstack "github.com/harshmangalam/shotstack-sdk-golang"
 )
 
 // edit
 
-func (e *Edit) PostRender(config *shotstack.Config) interface{} {
-	Url := fmt.Sprintf("https://api.shotstack.io/%v/render", config.Env)
-	jsonData, err := json.MarshalIndent(e, "", "   ")
+func (e *Edit) PostRender(config *shotstack.Config) (*shotstack.QueuedResponse, error) {
 
-	fmt.Println(string(jsonData))
+	res, err := shotstack.NewRequest().SetMethod(shotstack.POST).SetPath("/render").SetConfig(config).SetData(e).Send()
 
 	if err != nil {
-		panic(err)
+		fmt.Println(err)
 	}
 
-	headers := map[string][]string{
-		"Content-Type": {"application/json"},
-		"Accept":       {"application/json"},
-		"x-api-key":    {config.ApiKey},
-	}
-
-	data := bytes.NewBuffer(jsonData)
-	req, err := http.NewRequest("POST", Url, data)
-
-	if err != nil {
-		panic(err)
-	}
-	req.Header = headers
-
-	client := &http.Client{}
-	resp, err := client.Do(req)
-
-	if err != nil {
-		panic(err)
-	}
-
-	defer resp.Body.Close()
-
-	bodyBytes, err := ioutil.ReadAll(resp.Body)
-
-	if err != nil {
-		panic(err)
-	}
-
-	stringResp := string(bodyBytes)
-	return stringResp
+	fmt.Println(string(res))
+	respData := new(shotstack.QueuedResponse)
+	json.Unmarshal(res, respData)
+	return respData, nil
 
 }
