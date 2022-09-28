@@ -3,7 +3,7 @@ package shotstacksdkgolang
 type EnvType string
 
 const (
-	Prod  EnvType = "production"
+	Prod  EnvType = "prod"
 	Stage EnvType = "stage"
 )
 
