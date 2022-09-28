@@ -1,5 +1,16 @@
 package edit
 
+type MediaFileType string
+
+const (
+	Mp4 MediaFileType = "mp4"
+	Gif MediaFileType = "gif"
+	Jpg MediaFileType = "jpg"
+	Png MediaFileType = "png"
+	Bmp MediaFileType = "bmp"
+	Mp3 MediaFileType = "mp3"
+)
+
 type Size struct{}
 type Poster struct{}
 type Range struct{}
@@ -7,7 +18,7 @@ type Thumbnail struct{}
 type Destination struct{}
 
 type Output struct {
-	Format       string
+	Format       MediaFileType
 	Resolution   string
 	AspectRatio  string
 	Size         *Size
@@ -25,7 +36,7 @@ func NewOutput() *Output {
 	return new(Output)
 }
 
-func (o *Output) SetFormat(format string) *Output {
+func (o *Output) SetFormat(format MediaFileType) *Output {
 	o.Format = format
 	return o
 }
