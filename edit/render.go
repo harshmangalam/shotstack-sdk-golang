@@ -1,7 +1,11 @@
 package edit
 
 import (
+	"bytes"
 	"encoding/json"
+	"fmt"
+	"io/ioutil"
+	"net/http"
 
 	shotstack "github.com/harshmangalam/shotstack-sdk-golang"
 )
@@ -12,7 +16,6 @@ type ClipFilter string
 type ClipEffect string
 type Position string
 type ClipFit string
-type TitleAssetStyle string
 type TransitionType string
 
 const (
@@ -62,19 +65,6 @@ const (
 	FitContain ClipFit = "contain"
 	FitCrop    ClipFit = "crop"
 	FitNone    ClipFit = "none"
-)
-
-const (
-	Minimal     TitleAssetStyle = "minimal"
-	Blockbuster TitleAssetStyle = "blockbuster"
-	Vogue       TitleAssetStyle = "vogue"
-	Sketchy     TitleAssetStyle = "sketchy"
-	Skinny      TitleAssetStyle = "skinny"
-	Chunk       TitleAssetStyle = "chunk"
-	ChunkLight  TitleAssetStyle = "chunkLight"
-	Marker      TitleAssetStyle = "marker"
-	Future      TitleAssetStyle = "future"
-	Subtitle    TitleAssetStyle = "subtitle"
 )
 
 const (
@@ -148,12 +138,43 @@ func (e *Edit) SetDisk(disk Disk) *Edit {
 }
 
 func (e *Edit) PostRender(config *shotstack.Config) interface{} {
-
-	data, err := json.Marshal(e)
+	Url := fmt.Sprintf("https://api.shotstack.io/%v/render", config.Env)
+	jsonData, err := json.Marshal(e)
 
 	if err != nil {
 		panic(err)
 	}
 
-	return string(data)
+	headers := map[string][]string{
+		"Content-Type": {"application/json"},
+		"Accept":       {"application/json"},
+		"x-api-key":    {config.ApiKey},
+	}
+
+	data := bytes.NewBuffer(jsonData)
+	req, err := http.NewRequest("POST", Url, data)
+
+	if err != nil {
+		panic(err)
+	}
+	req.Header = headers
+
+	client := &http.Client{}
+	resp, err := client.Do(req)
+
+	if err != nil {
+		panic(err)
+	}
+
+	defer resp.Body.Close()
+
+	bodyBytes, err := ioutil.ReadAll(resp.Body)
+
+	if err != nil {
+		panic(err)
+	}
+
+	stringResp := string(bodyBytes)
+	return stringResp
+
 }
