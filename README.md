@@ -420,7 +420,7 @@ The **TitleAsset** clip type lets you create video titles from a text string and
 		SetSize(edit.SizeMedium).
 		SetBackground("#000000").
 		SetPosition(edit.Center).
-		SetOffset((offset))
+		SetOffset(offset)
 ```
 
 #### Methods:
