@@ -170,13 +170,14 @@ An **Edit** defines the arrangement of a video on a timeline, an audio edit or a
 #### Example:
 
 ```go
-editApi := edit.
+	edit.
 		NewEdit().
 		SetTimeline(timeline).
 		SetOutput(output).
 		SetMerges(merges).
 		SetCallback("https://my-server.com/edit/callback").
-		SetDisk(edit.Local)
+		SetDisk(edit.Local).
+		PostRender(config)
 ```
 
 #### Methods:
@@ -189,5 +190,6 @@ SetOutput([*edit.Output](#output)) | The output format, render range and type of
 SetMerges([*[]edit.Merge](#mergefield)) | An array of key/value pairs that provides an easy way to create templates with placeholders. The placeholders can be used to find and replace keys with values. For example you can search for the placeholder `{{NAME}}` and replace it with the value `Jane`. | -
 SetCallback(string) | An optional webhook callback URL used to receive status notifications when a render completes or fails. See [webhooks](https://shotstack.io/docs/guide/architecting-an-application/webhooks/) for  more details. | -
 SetDisk(edit.Disk) | The disk type to use for storing footage and assets for each render. See [disk types](https://shotstack.io/docs/guide/architecting-an-application/disk-types/) for more details. [default to `edit.Local`] <ul><li>`edit.Local` - optimized for high speed rendering with up to 512MB storage</li><li>`edit.Mount` - optimized for larger file sizes and longer videos with 5GB for source footage and 512MB for output render</li></ul> | -
+PostRender(*Config) | Pass configuration containig apiKey and environment return *edit.QueuedResponse | Y
 
 -----
