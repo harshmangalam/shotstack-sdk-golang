@@ -264,7 +264,7 @@ Download a custom font to use with the HTML asset type, using the font name in t
 #### Example:
 
 ```go
-font := edit.
+	font := edit.
 		NewFont().
 		SetSrc("https://shotstack-assets.s3-ap-southeast-2.amazonaws.com/fonts/OpenSans-Regular.ttf")
 ```
