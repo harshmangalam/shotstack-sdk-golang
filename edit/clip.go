@@ -1,5 +1,48 @@
 package edit
 
+type ClipFilter string
+type ClipEffect string
+type ClipFit string
+type Position string
+
+const (
+	Top         Position = "top"
+	TopRight    Position = "topRight"
+	Right       Position = "right"
+	BottomRight Position = "bottomRight"
+	Bottom      Position = "bottom"
+	BottomLeft  Position = "bottomLeft"
+	Left        Position = "left"
+	TopLeft     Position = "topLeft"
+	Center      Position = "center"
+)
+
+const (
+	Boost     ClipFilter = "boost"
+	Contrast  ClipFilter = "contrast"
+	Darken    ClipFilter = "darken"
+	Greyscale ClipFilter = "greyscale"
+	Lighten   ClipFilter = "lighten"
+	Muted     ClipFilter = "muted"
+	Negative  ClipFilter = "negative"
+)
+
+const (
+	ZoomIn     ClipEffect = "zoomIn"
+	ZoomOut    ClipEffect = "zoomOut"
+	SlideLeft  ClipEffect = "slideLeft"
+	SlideRight ClipEffect = "slideRight"
+	SlideUp    ClipEffect = "slideUp"
+	SlideDown  ClipEffect = "slideDown"
+)
+
+const (
+	FitCover   ClipFit = "cover"
+	FitContain ClipFit = "contain"
+	FitCrop    ClipFit = "crop"
+	FitNone    ClipFit = "none"
+)
+
 type Clip struct {
 	Asset      any         `json:"asset"`
 	Start      int         `json:"start"`
