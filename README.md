@@ -18,6 +18,7 @@ A server based render farm takes care of rendering the videos allowing multiple 
   - [Video Editing Schemas](#video-editing-schemas)
     - [Edit](#edit)
 	- [Timeline](#timeline)
+	- [SoundTrack](#soundTrack)
 
 
 # Using the Golang SDK
@@ -222,5 +223,33 @@ SetBackground(string) | A hexadecimal value for the timeline background colour. 
 SetFonts([*[]edit.Font](#font)) | An array of custom fonts to be downloaded for use by the HTML assets. | -
 SetTracks([*[]edit.Track[]](#track)) | A timeline consists of an array of tracks, each track containing clips. Tracks are layered on top of each other in the same order they are added to the array with the top most track layered over the top of those below it. Ensure that a track containing titles is the top most track so that it is displayed above videos and images. | Y
 SetCache(bool) | Disable the caching of ingested source footage and assets. See  [caching](https://shotstack.io/docs/guide/architecting-an-application/caching) for more details. [default to `true`] | -
+
+---
+
+
+
+
+### SoundTrack
+
+A music or audio file in mp3 format that plays for the duration of the rendered video or the length of the audio file, which ever is shortest.
+
+#### Example:
+
+```go
+	soundTrack := edit.
+		NewSoundTrack().
+		SetSrc("https://s3-ap-southeast-2.amazonaws.com/shotstack-assets/music/disco.mp3").
+		SetEffect(edit.FadeIn).
+		SetVolume(1)
+```
+
+#### Methods:
+
+Method | Description | Required
+:--- | :--- | :---: 
+NewSoundTrack | Create new sound track return *edit.SoundTrack. | Y
+SetSrc(string) | The URL of the mp3 audio file. The URL must be publicly accessible or include credentials. | Y
+SetEffect(AudioEffect) | The effect to apply to the audio file <ul><li>`FadeIn` - fade volume in only</li><li>`FadeOut` - fade volume out only</li><li>`FadeInFadeOut` - fade volume in and out</li></ul> | -
+SetVolume(float32) | Set the volume for the soundtrack between 0 and 1 where 0 is muted and 1 is full volume (defaults to `1`). | -
 
 ---
