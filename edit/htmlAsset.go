@@ -36,6 +36,11 @@ func (h *HtmlAsset) SetWidth(width int) *HtmlAsset {
 	return h
 }
 
+func (h *HtmlAsset) SetBackground(background string) *HtmlAsset {
+	h.Background = background
+	return h
+}
+
 func (h *HtmlAsset) SetPosition(pos Position) *HtmlAsset {
 	h.Position = pos
 	return h
