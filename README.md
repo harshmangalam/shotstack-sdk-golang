@@ -277,3 +277,25 @@ NewFont() | Create new font and return *edit.Font. | Y
 SetSrc(string) | The URL of the font file. The URL must be publicly accessible or include credentials. | Y
 
 ---
+
+
+### Track
+
+A track contains an array of clips. Tracks are layered on top of each other in the order in the array. The top most track will render on top of those below it.
+
+#### Example:
+
+```go
+	track := edit.
+		NewTrack().
+		SetClips(clips)
+```
+
+#### Methods:
+
+Method | Description | Required
+:--- | :--- | :---: 
+NewTrack() | Create new track and return *edit.Track | Y
+SetClips([*[]edit.Clip](#clip)) | An array of Clips comprising of TitleClip, ImageClip or VideoClip. | Y
+
+---
