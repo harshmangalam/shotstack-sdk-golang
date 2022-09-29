@@ -62,20 +62,19 @@ A server based render farm takes care of rendering the videos allowing multiple 
     - [AssetResponseAttributes](#assetresponseattributes)
 - [API Documentation and Guides](#api-documentation-and-guides)
 
-
 # Using the Golang SDK
+
 ### Installation
-#### required go v1.18
+
+#### required go v1.18+
 
 ```bash
 go install github.com/harshmangalam/shotstack-sdk-golang@latest
 ```
 
-
 ## Video Editing
 
 The Shotstack SDK enables programmatic video editing via the Edit API `render` endpoint. Add required schema using declarative api provided by library and render video.
-
 
 ### Video Editing Example
 
@@ -150,16 +149,51 @@ func main() {
 
 }
 
-
 ```
-
-
 
 ### Status Check Example
 
-The example request below can be called a few seconds after the render above is posted. It will return the status of 
+The example request below can be called a few seconds after the render above is posted. It will return the status of
 the render, which can take several seconds to process.
 
 ```go
+package main
+
+import (
+	"encoding/json"
+	"fmt"
+
+	shotstack "github.com/harshmangalam/shotstack-sdk-golang"
+	"github.com/harshmangalam/shotstack-sdk-golang/edit"
+)
+
+func main() {
+
+	// create new configuration by adding apikey and env
+	config := shotstack.
+		NewConfig().
+		SetApiKey("SHOTSTACK_API_KEY").
+		SetEnv(shotstack.Stage)
+
+	id := "bcffc816-71eb-437f-a368-ec7aa9e2cc08"
+	res, err := edit.GetRender(id, config)
+	if err != nil {
+		fmt.Println(err)
+	}
+
+  // print json response
+	data, _ := json.MarshalIndent(res, "", "   ")
+	fmt.Println(string(data))
+
+	// you can access all render response data here 
+
+	// res.Message
+	// res.Response.Created
+	// res.Response.Data.Output.AspectRatio
+	// res.Response.Id
+	// res.Response.Owner
+	// ....
+
+}
 
 ```
