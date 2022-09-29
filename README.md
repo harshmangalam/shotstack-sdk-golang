@@ -401,3 +401,38 @@ SetSrc(string) | The image source URL. The URL must be publicly accessible or in
 SetCrop([*edit.Crop](#crop)) | Crop the sides of an asset by a relative amount. The size of the crop is specified using a scale between 0 and 1, relative to the screen width - i.e. a left crop of 0.5 will crop half of the asset from the left, a top crop of 0.25 will crop the top by quarter of the asset. | -
 
 ---
+
+
+
+### TitleAsset
+
+The **TitleAsset** clip type lets you create video titles from a text string and apply styling and positioning.
+
+#### Example:
+
+```go
+	titleAsset := edit.
+		NewTitleAsset().
+		SetText("My Title").
+		SetStyle(edit.Minimal).
+		SetColor("#ffffff").
+		SetSize(edit.SizeMedium).
+		SetBackground("#000000").
+		SetPosition(edit.Center).
+		SetOffset((offset))
+```
+
+#### Methods:
+
+Method | Description | Required
+:--- | :--- | :---: 
+NewTitleAsset() | Create new title asset and return *edit.TitleAsset | Y
+SetText(string) | The title text string. | Y
+SetStyle(TitleAssetStyle) | Uses a preset to apply font properties and styling to the title. <ul><li>`Minimal`</li><li>`Blockbuster`</li><li>`Vogue`</li><li>`Sketchy`</li><li>`Skinny`</li><li>`Chunk`</li><li>`ChunkLight`</li><li>`Marker`</li><li>`Future`</li><li>`Subtitle`</li></ul> | -
+SetColor(string) | Set the text color using hexadecimal color notation. Transparency is supported by setting the first two characters of the hex string (opposite to HTML),  i.e. #80ffffff will be white with  50% transparency [default to `#ffffff`]. | - 
+SetSize(TitleSize) | Set the relative size of the text using predefined sizes from xx-small to xx-large [default to `SizeMedium`]. <ul><li>`SizeXxSmall`</li><li>`SizeXSmall`</li><li>`SizeSmall`</li><li>`SizeMedium`</li><li>`SizeLarge`</li><li>`SizeXLarge`</li><li>`SizeXxLarge`</li></ul> | -
+SetBackground(string) | Apply a background color behind the text. Set the text color using hexadecimal color notation. Transparency is supported by setting the first two characters of the hex string (opposite to HTML),  i.e. #80ffffff will be white with 50% transparency. Omit to use transparent background. | -
+SetPosition(Position) | Place the title in one of nine predefined positions of the viewport [default to `Center`]. <ul><li>`Top` - top (center)</li><li>`TopRight` - top right</li><li>`Right` - right (center)</li><li>`BottomRight` - bottom right</li><li>`Bottom` - bottom (center)</li><li>`BottomLeft` - bottom left</li><li>`Left` - left (center)</li><li>`TopLeft` - top left</li><li>`Center` - center</li></ul> | -
+SetOffset([*edit.Offset](#offset)) | Offset the location of the title relative to its position on the screen. | -
+
+---

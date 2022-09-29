@@ -21,6 +21,7 @@ const (
 	SizeXSmall  TitleSize = "x-small"
 	SizeSmall   TitleSize = "small"
 	SizeMedium  TitleSize = "medium"
+	SizeLarge   TitleSize = "large"
 	SizeXLarge  TitleSize = "x-large"
 	SizeXxLarge TitleSize = "xx-large"
 )
