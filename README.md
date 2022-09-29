@@ -253,3 +253,26 @@ SetEffect(AudioEffect) | The effect to apply to the audio file <ul><li>`FadeIn` 
 SetVolume(float32) | Set the volume for the soundtrack between 0 and 1 where 0 is muted and 1 is full volume (defaults to `1`). | -
 
 ---
+
+
+
+### Font
+
+Download a custom font to use with the HTML asset type, using the font name in the CSS or font tag. See our [custom fonts](https://shotstack.io/learn/html-custom-fonts/) getting started guide for more details.
+
+#### Example:
+
+```go
+font := edit.
+		NewFont().
+		SetSrc("https://shotstack-assets.s3-ap-southeast-2.amazonaws.com/fonts/OpenSans-Regular.ttf")
+```
+
+#### Methods:
+
+Method | Description | Required
+:--- | :--- | :---: 
+NewFont() | Create new font and return *edit.Font. | Y
+SetSrc(string) | The URL of the font file. The URL must be publicly accessible or include credentials. | Y
+
+---
