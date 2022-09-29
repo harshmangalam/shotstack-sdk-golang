@@ -25,6 +25,7 @@ A server based render farm takes care of rendering the videos allowing multiple 
 	- [VideoAsset](#videoAsset)
 	- [ImageAsset](#imageAsset)
 	- [TitleAsset](#titleAsset)
+	- [HtmlAsset](#htmlAsset)
 
 
 # Using the Golang SDK
@@ -435,5 +436,39 @@ SetSize(TitleSize) | Set the relative size of the text using predefined sizes fr
 SetBackground(string) | Apply a background color behind the text. Set the text color using hexadecimal color notation. Transparency is supported by setting the first two characters of the hex string (opposite to HTML),  i.e. #80ffffff will be white with 50% transparency. Omit to use transparent background. | -
 SetPosition(Position) | Place the title in one of nine predefined positions of the viewport [default to `Center`]. <ul><li>`Top` - top (center)</li><li>`TopRight` - top right</li><li>`Right` - right (center)</li><li>`BottomRight` - bottom right</li><li>`Bottom` - bottom (center)</li><li>`BottomLeft` - bottom left</li><li>`Left` - left (center)</li><li>`TopLeft` - top left</li><li>`Center` - center</li></ul> | -
 SetOffset([*edit.Offset](#offset)) | Offset the location of the title relative to its position on the screen. | -
+
+---
+
+
+
+
+### HtmlAsset
+
+The **HtmlAsset** clip type lets you create text based layout and formatting using HTML and CSS. You can also set the height and width of a bounding box for the HTML content to sit within. Text and elements will wrap within the bounding box.
+
+#### Example:
+
+```go
+	htmlAsset := edit.
+		NewHtmlAsset().
+		SetHtml("<p>Hello <b>World</b></p>").
+		SetCss("p { color: #ffffff; } b { color: #ffff00; }").
+		SetWidth(400).
+		SetHeight(200).
+		SetBackground("transparent").
+		SetPosition(edit.Center)
+```
+
+#### Methods:
+
+Method | Description | Required
+:--- | :--- | :---:
+NewHtmlAsset() | Create new html asset and return [*edit.HtmlAsset](#htmlAsset) | Y
+SetHtml(string) | The HTML text string. See list of [supported HTML tags](https://shotstack.io/docs/guide/architecting-an-application/html-support/#supported-html-tags). | Y
+SetCss(string) | The CSS text string to apply styling to the HTML. See list of  [support CSS properties](https://shotstack.io/docs/guide/architecting-an-application/html-support/#supported-css-properties). | -
+SetWidth(int) | Set the width of the HTML asset bounding box in pixels. Text will wrap to fill the bounding box. | -
+SetHeight(int) | Set the height of the HTML asset bounding box in pixels. Text and elements will be masked if they exceed the  height of the bounding box. | -
+SetBackground(string) | Apply a background color behind the HTML bounding box using. Set the text color using hexadecimal  color notation. Transparency is supported by setting the first two characters of the hex string  (opposite to HTML), i.e. #80ffffff will be white with 80% transparency [default to `transparent`]. | - 
+SetPosition(Position) | Place the HTML in one of nine predefined positions within the HTML area [default to `Center`]. <ul><li>`Top` - top (center)</li><li>`TopRight` - top right</li><li>`Right` - right (center)</li><li>`BottomRight` - bottom right</li><li>`Bottom` - bottom (center)</li><li>`BottomLeft` - bottom left</li><li>`Left` - left (center)</li><li>`TopLeft` - top left</li><li>`Center` - center</li></ul> | -
 
 ---
