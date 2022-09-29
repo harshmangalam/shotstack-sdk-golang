@@ -204,12 +204,12 @@ A **Timeline** represents the contents of a video edit over time, an audio edit 
 
 ```go
 timeline := edit.
-				NewTimeline().
-				SetSoundTrack(soundTrack). 
-				SetBackground("#000000"). 
-				SetFonts(fonts). 
-				SetTracks(tracks). 
-				SetCache(true)
+		NewTimeline().
+		SetSoundTrack(soundTrack).
+		SetBackground("#000000").
+		SetFonts(fonts).
+		SetTracks(tracks).
+		SetCache(true)
 ```
 
 #### Methods:
