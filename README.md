@@ -21,6 +21,7 @@ A server based render farm takes care of rendering the videos allowing multiple 
 	- [SoundTrack](#soundTrack)
 	- [Font](#font)
 	- [Track](#track)
+	- [Clip](#clip)
 
 
 # Using the Golang SDK
@@ -298,5 +299,50 @@ Method | Description | Required
 :--- | :--- | :---: 
 NewTrack() | Create new track and return *edit.Track | Y
 SetClips([*[]edit.Clip](#clip)) | An array of Clips comprising of TitleClip, ImageClip or VideoClip. | Y
+
+---
+
+
+
+### Clip
+
+A **Clip** is a container for a specific type of asset, i.e. a title, image, video, audio or html. You use a Clip to define when an asset will display on the timeline, how long it will play for and transitions, filters and effects to apply to it.
+
+#### Example:
+
+```go
+	clip := edit.
+		NewClip().
+		SetAsset(asset).
+		SetStart(2).
+		SetLength(5).
+		SetFit(edit.FitCrop).
+		SetScale(0).
+		SetPosition(edit.Center).
+		SetOffset(offset).
+		SetTransition(transition).
+		SetEffect(edit.ZoomIn).
+		SetFilter(edit.Greyscale).
+		SetOpacity(1).
+		SetTransform(transform)
+```
+
+#### Methods:
+
+Method | Description | Required
+:--- | :--- | :---: 
+NewClip() | Create new clip and return *edit.Clip. | Y
+SetAsset(any) | The type of asset to display for the duration of this Clip. Value must be one of: <ul><li>[edit.VideoAsset](#videoasset)</li><li>[edit.ImageAsset](#imageasset)</li><li>[edit.TitleAsset](#titleasset)</li><li>[edit.HtmlAsset](#htmlasset)</li><li>[edit.AudioAsset](#audioasset)</li><li>[edit.LumaAsset](#lumaasset)</li></ul>  | Y
+SetStart(float32) | The start position of the Clip on the timeline, in seconds. | Y
+SetLength(float32) | The length, in seconds, the Clip should play for. | Y
+SetFit(ClipFit) | Set how the asset should be scaled to fit the viewport using one of the following options [default to `FitCrop`]: <ul><li>`FitCover` - stretch the asset to fill the viewport without maintaining the aspect ratio.</li><li>`FitContain` - fit the entire asset within the viewport while maintaining the original aspect ratio.</li><li>`FitCrop` - scale the asset to fill the viewport while maintaining the aspect ratio. The asset will be cropped if it exceeds the bounds of the viewport.</li><li>`FitNone` - preserves the original asset dimensions and does not apply any scaling.</li></ul>| -
+SetScale(float32) | Scale the asset to a fraction of the viewport size - i.e. setting the scale to 0.5 will scale asset to half the size of the viewport. This is useful for picture-in-picture video and  scaling images such as logos and watermarks. | -
+SetPosition(Position) | Place the asset in one of nine predefined positions of the viewport. This is most effective for when the asset is scaled and you want to position the element to a specific position [default to `Center`].<ul><li>`Top` - top (center)</li><li>`TopRight` - top right</li><li>`Right` - right (center)</li><li>`BottomRight` - bottom right</li><li>`Bottom` - bottom (center)</li><li>`BottomLeft` - bottom left</li><li>`Left` - left (center)</li><li>`TopLeft` - top left</li><li>`Center` - center</li></ul> | -
+SetOffset([*edit.Offset](#offset)) | Offset the location of the asset relative to its position on the viewport. The offset distance is relative to the width of the viewport - for example an x offset of 0.5 will move the asset half the viewport width to the right. | -
+SetTransition([*edit.Transition](#transition)) | In and out transitions for a clip - i.e. fade in and fade out | -
+SetEffect(ClipEffect) | A motion effect to apply to the Clip. <ul><li>`ZoomIn` - slow zoom in</li><li>`ZoomOut` - slow zoom out</li><li>`SlideLeft` - slow slide (pan) left</li><li>`SlideRight` - slow slide (pan) right</li><li>`SlideUp` - slow slide (pan) up</li><li>`SlideDown` - slow slide (pan) down</li></ul>| -
+SetFilter(ClipFilter) | A filter effect to apply to the Clip. <ul><li>`Boost` - boost contrast and saturation</li><li>`Contrast` - increase contrast</li><li>`Darken` - darken the scene</li><li>`Greyscale` - remove colour</li><li>`Lighten` - lighten the scene</li><li>`Muted` - reduce saturation and contrast</li><li>`Negative` - invert colors</li></ul> | -
+SetOpacity(float32) | Sets the opacity of the Clip where 1 is opaque and 0 is transparent. [default to `1`] | -
+SetTransform([*edit.Transform](#transform)) | A transformation lets you modify the visual properties of a clip. Available transformations are [edit.RotateTransformation](#rotatetransformation), [edit.SkewTransformation](#skewtransformation) and [edit.FlipTransformation](#fliptransformation). Transformations can be combined to create interesting new shapes and effects. | -
 
 ---

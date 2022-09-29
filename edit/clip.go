@@ -45,16 +45,16 @@ const (
 
 type Clip struct {
 	Asset      any         `json:"asset"`
-	Start      int         `json:"start"`
-	Length     int         `json:"length"`
+	Start      float32     `json:"start"`
+	Length     float32     `json:"length"`
 	Fit        ClipFit     `json:"fit,omitempty"`
-	Scale      int         `json:"scale,omitempty"`
+	Scale      float32     `json:"scale,omitempty"`
 	Position   Position    `json:"position,omitempty"`
 	Offset     *Offset     `json:"offset,omitempty"`
 	Transition *Transition `json:"transition,omitempty"`
 	Effect     ClipEffect  `json:"effect,omitempty"`
 	Filter     ClipFilter  `json:"filter,omitempty"`
-	Opacity    int8        `json:"opacity,omitempty"`
+	Opacity    float32     `json:"opacity,omitempty"`
 	Transform  *Transform  `json:"transform,omitempty"`
 }
 
@@ -68,12 +68,12 @@ func (c *Clip) SetAsset(asset any) *Clip {
 	return c
 }
 
-func (c *Clip) SetStart(start int) *Clip {
+func (c *Clip) SetStart(start float32) *Clip {
 	c.Start = start
 	return c
 }
 
-func (c *Clip) SetLength(length int) *Clip {
+func (c *Clip) SetLength(length float32) *Clip {
 	c.Length = length
 	return c
 }
@@ -83,7 +83,7 @@ func (c *Clip) SetFit(fit ClipFit) *Clip {
 	return c
 }
 
-func (c *Clip) SetScale(scale int) *Clip {
+func (c *Clip) SetScale(scale float32) *Clip {
 	c.Scale = scale
 	return c
 }
@@ -113,7 +113,7 @@ func (c *Clip) SetFilter(filter ClipFilter) *Clip {
 	return c
 }
 
-func (c *Clip) SetOpacity(opacity int8) *Clip {
+func (c *Clip) SetOpacity(opacity float32) *Clip {
 	c.Opacity = opacity
 	return c
 }
