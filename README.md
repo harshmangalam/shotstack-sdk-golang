@@ -24,6 +24,7 @@ A server based render farm takes care of rendering the videos allowing multiple 
 	- [Clip](#clip)
 	- [VideoAsset](#videoAsset)
 	- [ImageAsset](#imageAsset)
+	- [TitleAsset](#titleAsset)
 
 
 # Using the Golang SDK
