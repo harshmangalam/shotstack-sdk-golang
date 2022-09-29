@@ -3,7 +3,7 @@ package edit
 type VideoAsset struct {
 	Type   string  `json:"type"`
 	Src    string  `json:"src"`
-	Trim   int     `json:"trim,omitempty"`
+	Trim   float32 `json:"trim,omitempty"`
 	Volume float32 `json:"volume,omitempty"`
 	Crop   *Crop   `json:"crop,omitempty"`
 }
@@ -18,7 +18,7 @@ func (v *VideoAsset) SetSrc(src string) *VideoAsset {
 	return v
 }
 
-func (v *VideoAsset) SetTrim(trim int) *VideoAsset {
+func (v *VideoAsset) SetTrim(trim float32) *VideoAsset {
 	v.Trim = trim
 	return v
 }
