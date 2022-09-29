@@ -20,6 +20,7 @@ A server based render farm takes care of rendering the videos allowing multiple 
 	- [Timeline](#timeline)
 	- [SoundTrack](#soundTrack)
 	- [Font](#font)
+	- [Track](#track)
 
 
 # Using the Golang SDK
