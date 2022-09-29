@@ -12,11 +12,11 @@ func NewImageAsset() *ImageAsset {
 	return i
 }
 
-func (i *ImageAsset) SetImageAssetSrc(src string) *ImageAsset {
+func (i *ImageAsset) SetSrc(src string) *ImageAsset {
 	i.Src = src
 	return i
 }
-func (i *ImageAsset) SetImageAssetCrop(crop *Crop) *ImageAsset {
+func (i *ImageAsset) SetCrop(crop *Crop) *ImageAsset {
 	i.Crop = crop
 	return i
 }

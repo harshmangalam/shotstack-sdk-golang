@@ -371,8 +371,32 @@ Method | Description | Required
 :--- | :--- | :---: 
 NewVideoAsset() | Create new video asset and return *edit.VideoAsset. | Y
 SetSrc(string) | The video source URL. The URL must be publicly accessible or include credentials. | Y
-SetTrim(float) | The start trim point of the video clip, in seconds (defaults to 0). Videos will start from the in trim point. The video will play until the file ends or the Clip length is reached. | -
-SetVolume(float) | Set the volume for the video clip between 0 and 1 where 0 is muted and 1 is full volume (defaults to 0). | -
+SetTrim(float32) | The start trim point of the video clip, in seconds (defaults to 0). Videos will start from the in trim point. The video will play until the file ends or the Clip length is reached. | -
+SetVolume(float32) | Set the volume for the video clip between 0 and 1 where 0 is muted and 1 is full volume (defaults to 0). | -
+SetCrop([*edit.Crop](#crop)) | Crop the sides of an asset by a relative amount. The size of the crop is specified using a scale between 0 and 1, relative to the screen width - i.e. a left crop of 0.5 will crop half of the asset from the left, a top crop of 0.25 will crop the top by quarter of the asset. | -
+
+---
+
+
+### ImageAsset
+
+The **ImageAsset** is used to create video from images to compose an image. The src must be a publicly accessible URL to an image resource such as a jpg or png file.
+
+#### Example:
+
+```go
+	imageAsset := edit.
+		NewImageAsset().
+		SetSrc("https://shotstack-assets.s3-ap-southeast-2.amazonaws.com/images/earth.jpg").
+		SetCrop(crop)
+```
+
+#### Methods:
+
+Method | Description | Required
+:--- | :--- | :---: 
+NewImageAsset() | Create new image asset and return *edit.ImageAsset. | Y
+SetSrc(string) | The image source URL. The URL must be publicly accessible or include credentials. | Y
 SetCrop([*edit.Crop](#crop)) | Crop the sides of an asset by a relative amount. The size of the crop is specified using a scale between 0 and 1, relative to the screen width - i.e. a left crop of 0.5 will crop half of the asset from the left, a top crop of 0.25 will crop the top by quarter of the asset. | -
 
 ---
