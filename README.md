@@ -29,6 +29,7 @@ A server based render farm takes care of rendering the videos allowing multiple 
 	- [AudioAsset](#audioAsset)
 	- [LumaAsset](#lumaAsset)
 	- [Transition](#transition)
+	- [Offset](#offset)
 
 
 # Using the Golang SDK
