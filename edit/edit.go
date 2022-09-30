@@ -2,13 +2,6 @@ package edit
 
 type Disk string
 
-type Crop struct {
-	Top    float32 `json:"top"`
-	Bottom float32 `json:"bottom"`
-	Left   float32 `json:"left"`
-	Right  float32 `jight:"right"`
-}
-
 const (
 	Local Disk = "local"
 	Mount Disk = "mount"
