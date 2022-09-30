@@ -499,8 +499,32 @@ Method | Description | Required
 :--- | :--- | :---: 
 NewAudioAsset() | Create new audio asset and return *edit.AudioAsset. | Y
 SetSrc(string) | The audio source URL. The URL must be publicly accessible or include credentials. | Y
-SetTrim(float) | The start trim point of the audio clip, in seconds (defaults to 0). Audio will start from the trim point. The audio will play until the file ends or the Clip length is reached. | -
-SetVolume(float) | Set the volume for the audio clip between 0 and 1 where 0 is muted and 1 is full volume (defaults to 1). | -
+SetTrim(float32) | The start trim point of the audio clip, in seconds (defaults to 0). Audio will start from the trim point. The audio will play until the file ends or the Clip length is reached. | -
+SetVolume(float32) | Set the volume for the audio clip between 0 and 1 where 0 is muted and 1 is full volume (defaults to 1). | -
 SetEffect(AudioEffect) | The effect to apply to the audio asset: <ul><li>`FadeIn` - fade volume in only</li><li>`FadeOut` - fade volume out only</li><li>`FadeInFadeOut` - fade volume in and out</li></ul> | -
+
+---
+
+
+### LumaAsset
+
+The **LumaAsset** is used to create luma matte masks, transitions and effects between other assets. A luma matte is a grey scale image or animated video where the black areas are transparent and the white areas solid. The luma matte animation should be provided as an mp4 video file. The src must be a publicly accessible URL to the file.
+
+#### Example:
+
+```go
+	lumaAsset := edit.
+		NewLumaAsset().
+		SetSrc("https://shotstack-assets.s3-ap-southeast-2.amazonaws.com/examples/luma-mattes/paint-left.mp4").
+		SetTrim(5)
+```
+
+#### Methods:
+
+Method | Description | Required
+:--- | :--- | :---: 
+NewLumaAsset() | Create new luma asset and return *edit.LumaAsset | Y
+SetSrc(string) | The luma matte source URL. The URL must be publicly accessible or include credentials. | Y
+SetTrim(float32) | The start trim point of the luma matte clip, in seconds (defaults to 0). Videos will start from the in trim point. A luma matte video will play until the file ends or the Clip length is reached. | -
 
 ---
