@@ -26,6 +26,7 @@ A server based render farm takes care of rendering the videos allowing multiple 
 	- [ImageAsset](#imageAsset)
 	- [TitleAsset](#titleAsset)
 	- [HtmlAsset](#htmlAsset)
+	- [AudioAsset](#audioAsset)
 
 
 # Using the Golang SDK
@@ -470,5 +471,36 @@ SetWidth(int) | Set the width of the HTML asset bounding box in pixels. Text wil
 SetHeight(int) | Set the height of the HTML asset bounding box in pixels. Text and elements will be masked if they exceed the  height of the bounding box. | -
 SetBackground(string) | Apply a background color behind the HTML bounding box using. Set the text color using hexadecimal  color notation. Transparency is supported by setting the first two characters of the hex string  (opposite to HTML), i.e. #80ffffff will be white with 80% transparency [default to `transparent`]. | - 
 SetPosition(Position) | Place the HTML in one of nine predefined positions within the HTML area [default to `Center`]. <ul><li>`Top` - top (center)</li><li>`TopRight` - top right</li><li>`Right` - right (center)</li><li>`BottomRight` - bottom right</li><li>`Bottom` - bottom (center)</li><li>`BottomLeft` - bottom left</li><li>`Left` - left (center)</li><li>`TopLeft` - top left</li><li>`Center` - center</li></ul> | -
+
+---
+
+
+
+### AudioAsset
+
+The **AudioAsset** is used to add sound effects and audio at specific intervals on the timeline. The src must be a 
+publicly accessible URL to an audio resource such as an mp3 file.
+
+#### Example:
+
+```go
+
+	audioAsset := edit.
+		NewAudioAsset().
+		SetSrc("https://shotstack-assets.s3-ap-southeast-2.amazonaws.com/music/unminus/lit.mp3").
+		SetTrim(2).
+		SetVolume(0.5).
+		SetEffect(edit.FadeInFadeOut)
+```
+
+#### Methods:
+
+Method | Description | Required
+:--- | :--- | :---: 
+NewAudioAsset() | Create new audio asset and return *edit.AudioAsset. | Y
+SetSrc(string) | The audio source URL. The URL must be publicly accessible or include credentials. | Y
+SetTrim(float) | The start trim point of the audio clip, in seconds (defaults to 0). Audio will start from the trim point. The audio will play until the file ends or the Clip length is reached. | -
+SetVolume(float) | Set the volume for the audio clip between 0 and 1 where 0 is muted and 1 is full volume (defaults to 1). | -
+SetEffect(AudioEffect) | The effect to apply to the audio asset: <ul><li>`FadeIn` - fade volume in only</li><li>`FadeOut` - fade volume out only</li><li>`FadeInFadeOut` - fade volume in and out</li></ul> | -
 
 ---

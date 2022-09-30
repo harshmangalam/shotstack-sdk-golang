@@ -11,7 +11,7 @@ const (
 type AudioAssetType struct {
 	Type   string      `json:"type"`
 	Src    string      `json:"src"`
-	Trim   int         `json:"trim,omitempty"`
+	Trim   float32     `json:"trim,omitempty"`
 	Volume float32     `json:"volume,omitempty"`
 	Effect AudioEffect `json:"effect,omitempty"`
 }
@@ -26,7 +26,7 @@ func (a *AudioAssetType) SetSrc(src string) *AudioAssetType {
 	a.Src = src
 	return a
 }
-func (a *AudioAssetType) SetTrim(trim int) *AudioAssetType {
+func (a *AudioAssetType) SetTrim(trim float32) *AudioAssetType {
 	a.Trim = trim
 	return a
 }
