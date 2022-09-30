@@ -28,6 +28,7 @@ A server based render farm takes care of rendering the videos allowing multiple 
 	- [HtmlAsset](#htmlAsset)
 	- [AudioAsset](#audioAsset)
 	- [LumaAsset](#lumaAsset)
+	- [Transition](#transition)
 
 
 # Using the Golang SDK
@@ -527,5 +528,30 @@ Method | Description | Required
 NewLumaAsset() | Create new luma asset and return *edit.LumaAsset | Y
 SetSrc(string) | The luma matte source URL. The URL must be publicly accessible or include credentials. | Y
 SetTrim(float32) | The start trim point of the luma matte clip, in seconds (defaults to 0). Videos will start from the in trim point. A luma matte video will play until the file ends or the Clip length is reached. | -
+
+---
+
+
+
+### Transition
+
+The **Transition** clip type lets you define in and out transitions for a clip - i.e. fade in and fade out
+
+#### Example:
+
+```go
+	transition := edit.
+		NewTransition().
+		SetIn(edit.TransitionFade).
+		SetOut(edit.TransitionFade)
+```
+
+#### Methods:
+
+Method | Description | Required
+:--- | :--- | :---: 
+NewTransition() | Create new transition and return *edit.Transition | Y
+SetIn(TransitionType) | The transition in. Available transitions are:   <ul><li>`TransitionFade` - fade in</li><li>`TransitionReveal` - reveal from left to right</li><li>`TransitionWipeLeft` - fade across screen to the left</li><li>`TransitionWipeRight` - fade across screen to the right</li><li>`TransitionSlideLeft` - move slightly left and fade in</li><li>`TransitionSlideRight` - move slightly right and fade in</li><li>`TransitionSlideUp` - move slightly up and fade in</li><li>`TransitionSlideDown` - move slightly down and fade in</li><li>`TransitionCarouselLeft` - slide in from right to left</li><li>`TransitionCarouselRight` - slide in from left to right</li><li>`TransitionCarouselUp` - slide in from bottom to top</li><li>`TransitionCarouselDown` - slide in from top to bottom</li><li>`TransitionShuffleTopRight` - rotate in from top right</li><li>`TransitionShuffleRightTop` - rotate in from right top</li><li>`TransitionShuffleRightBottom` - rotate in from right bottom</li><li>`TransitionShuffleBottomRight` - rotate in from bottom right</li><li>`TransitionShuffleBottomLeft` - rotate in from bottom left</li><li>`TransitionShuffleLeftBottom` - rotate in from left bottom</li><li>`TransitionShuffleLeftTop` - rotate in from left top</li><li>`TransitionShuffleTopLeft` - rotate in from top left</li><li>`TransitionZoom` - fast zoom in</li></ul>  | -
+SetOut(TransitionType) | The transition out. Available transitions are:  <ul><li>`TransitionFade` - fade in</li><li>`TransitionReveal` - reveal from left to right</li><li>`TransitionWipeLeft` - fade across screen to the left</li><li>`TransitionWipeRight` - fade across screen to the right</li><li>`TransitionSlideLeft` - move slightly left and fade in</li><li>`TransitionSlideRight` - move slightly right and fade in</li><li>`TransitionSlideUp` - move slightly up and fade in</li><li>`TransitionSlideDown` - move slightly down and fade in</li><li>`TransitionCarouselLeft` - slide in from right to left</li><li>`TransitionCarouselRight` - slide in from left to right</li><li>`TransitionCarouselUp` - slide in from bottom to top</li><li>`TransitionCarouselDown` - slide in from top to bottom</li><li>`TransitionShuffleTopRight` - rotate in from top right</li><li>`TransitionShuffleRightTop` - rotate in from right top</li><li>`TransitionShuffleRightBottom` - rotate in from right bottom</li><li>`TransitionShuffleBottomRight` - rotate in from bottom right</li><li>`TransitionShuffleBottomLeft` - rotate in from bottom left</li><li>`TransitionShuffleLeftBottom` - rotate in from left bottom</li><li>`TransitionShuffleLeftTop` - rotate in from left top</li><li>`TransitionShuffleTopLeft` - rotate in from top left</li><li>`TransitionZoom` - fast zoom in</li></ul>  | -
 
 ---
