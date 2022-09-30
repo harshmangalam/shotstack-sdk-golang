@@ -27,6 +27,7 @@ A server based render farm takes care of rendering the videos allowing multiple 
 	- [TitleAsset](#titleAsset)
 	- [HtmlAsset](#htmlAsset)
 	- [AudioAsset](#audioAsset)
+	- [LumaAsset](#lumaAsset)
 
 
 # Using the Golang SDK
