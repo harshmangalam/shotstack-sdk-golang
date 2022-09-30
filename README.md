@@ -30,6 +30,7 @@ A server based render farm takes care of rendering the videos allowing multiple 
 	- [LumaAsset](#lumaAsset)
 	- [Transition](#transition)
 	- [Offset](#offset)
+	- [Crop](#crop)
 
 
 # Using the Golang SDK
@@ -584,3 +585,31 @@ SetY(float32) | Offset an asset on the vertical axis (up or down), range varies 
 
 
 
+
+
+### Crop
+
+Crop the sides of an asset by a relative amount. The size of the crop is specified using a scale between 0 and 1, relative to the screen width - i.e a left crop of 0.5 will crop half of the asset from the left, a top crop of 0.25 will crop the top by quarter of the asset.
+
+#### Example:
+
+```go
+	crop := edit.
+		NewCrop().
+		SetTop(0.15).
+		SetBottom(0.15).
+		SetLeft(0).
+		SetRight(0)
+```
+
+#### Methods:
+
+Method | Description | Required
+:--- | :--- | :---: 
+NewCrop() | Create new crop and return *edit.Crop.  |Y
+SetTop(float32) | Crop from the top of the asset | -
+SetBottom(float32) | Crop from the bottom of the asset | -
+SetLeft(float32) | Crop from the left of the asset | -
+SetRight(float32) | Crop from the right of the asset | -
+
+---
