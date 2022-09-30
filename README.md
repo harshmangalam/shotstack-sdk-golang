@@ -555,3 +555,31 @@ SetIn(TransitionType) | The transition in. Available transitions are:   <ul><li>
 SetOut(TransitionType) | The transition out. Available transitions are:  <ul><li>`TransitionFade` - fade in</li><li>`TransitionReveal` - reveal from left to right</li><li>`TransitionWipeLeft` - fade across screen to the left</li><li>`TransitionWipeRight` - fade across screen to the right</li><li>`TransitionSlideLeft` - move slightly left and fade in</li><li>`TransitionSlideRight` - move slightly right and fade in</li><li>`TransitionSlideUp` - move slightly up and fade in</li><li>`TransitionSlideDown` - move slightly down and fade in</li><li>`TransitionCarouselLeft` - slide in from right to left</li><li>`TransitionCarouselRight` - slide in from left to right</li><li>`TransitionCarouselUp` - slide in from bottom to top</li><li>`TransitionCarouselDown` - slide in from top to bottom</li><li>`TransitionShuffleTopRight` - rotate in from top right</li><li>`TransitionShuffleRightTop` - rotate in from right top</li><li>`TransitionShuffleRightBottom` - rotate in from right bottom</li><li>`TransitionShuffleBottomRight` - rotate in from bottom right</li><li>`TransitionShuffleBottomLeft` - rotate in from bottom left</li><li>`TransitionShuffleLeftBottom` - rotate in from left bottom</li><li>`TransitionShuffleLeftTop` - rotate in from left top</li><li>`TransitionShuffleTopLeft` - rotate in from top left</li><li>`TransitionZoom` - fast zoom in</li></ul>  | -
 
 ---
+
+
+
+### Offset
+
+Offsets the position of an asset horizontally or vertically by a relative distance.
+
+#### Example:
+
+```go
+	offset := edit.
+		NewOffset().
+		SetX(0.1).
+		SetY(-0.2)
+```
+
+#### Methods:
+
+Method | Description | Required
+:--- | :--- | :---: 
+NewOffset() | Create new offset and return *edit.Offset. | Y
+SetX(float32) | Offset an asset on the horizontal axis (left or right), range varies from -1 to 1. Positive numbers move the asset right, negative left. For all assets except titles the distance moved is relative to the width  of the viewport - i.e. an X offset of 0.5 will move the asset half the  screen width to the right. [default to `0`] | -
+SetY(float32) | Offset an asset on the vertical axis (up or down), range varies from -1 to 1. Positive numbers move the asset up, negative down. For all assets except titles the distance moved is relative to the height of the viewport - i.e. an Y offset of 0.5 will move the asset up half the screen height. [default to `0`] | -
+
+---
+
+
+
