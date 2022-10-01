@@ -36,6 +36,9 @@ A server based render farm takes care of rendering the videos allowing multiple 
 	- [SkewTransform](#skewtransform)
 	- [FlipTransform](#fliptransform)
 	- [MergeField](#mergefield)
+  - [Output Schemas](#output-schemas)
+    - [Output](#output)
+
 
 
 # Using the Golang SDK
@@ -737,5 +740,52 @@ Method | Description | Required
 NewMergeField() | Create new merge field and return *edit.MergeField | Y
 SetFind(string) | The string to find <u>without</u> delimiters. | Y
 SetReplace(any) | The replacement value. The replacement can be any valid JSON type - string, boolean, number, etc... | Y
+
+---
+
+
+## Output Schemas
+
+The following schemas specify the output format and settings.
+### Output
+
+The output format, render range and type of media to generate.
+
+#### Example:
+
+```go
+	output := edit.
+		NewOutput().
+		SetFormat(edit.Mp4).
+		SetResolution(edit.ResolutionSd).
+		SetAspectRatio(edit.DefaultRatio).
+		SetSize(size).
+		SetFps(25).
+		SetScaleTo(edit.ResolutionPreview).
+		SetQuality(edit.Medium).
+		SetRepeat(true).
+		SetRange(outputRange).
+		SetPoster(poster).
+		SetThumbnail(thumbnail).
+		SetDestinations(destination)
+```
+
+#### Methods:
+
+Method | Description | Required
+:--- | :--- | :---: 
+NewOutput() | Create new output and return *edit.Output |Y
+SetFormat(MediaFileType) | The output format and type of media file to generate. <ul><li>`Mp4` - mp4 video file</li><li>`Gif` - animated gif</li><li>`Jpg` - jpg image file</li><li>`Png` - png image file</li><li>`Bmp` - bmp image file</li><li>`Mp3` - mp3 audio file (audio only)</li></ul> | Y
+SetResolution(MediaResolution) | The output resolution of the video or image. <ul><li>`ResolutionPreview` - 512px x 288px @ 15fps</li><li>`ResolutionMobile` - 640px x 360px @ 25fps</li><li>`ResolutionSd` - 1024px x 576px @ 25fps</li><li>`ResolutionHd` - 1280px x 720px @ 25fps</li><li>`Resolution1080` - 1920px x 1080px @ 25fps</li></ul> | -
+SetAspectRatio(MediaAspectRatio) | The aspect ratio (shape) of the video or image. Useful for social media output formats. Options are: <ul><li>`DefaultRatio` - regular landscape/horizontal aspect ratio (default)</li><li>`RevDefaultRatio` - vertical/portrait aspect ratio</li><li>`SquareRatio` - square aspect ratio</li><li>`ShortRatio` - short vertical/portrait aspect ratio</li><li>`LegacyRatio` - legacy TV aspect ratio</li></ul> | -
+SetSize([*edit.OutputSize](#size)) | Set a custom size for a video or image. When using a custom size omit the `resolution` and `aspectRatio`. Custom sizes must be divisible by 2 based on the encoder specifications. | -
+SetFps(float32) | Override the default frames per second. Useful for when the source footage is recorded at 30fps, i.e. on  mobile devices. Lower frame rates can be used to add cinematic quality (24fps) or to create smaller file size/faster render times or animated gifs (12 or 15fps). Default is 25fps. <ul><li>`12` - 12fps</li><li>`15` - 15fps</li><li>`23.976` - 23.976fps</li><li>`24` - 24fps</li><li>`25` - 25fps</li><li>`29.97` - 29.97fps</li><li>`30` - 30fps</li></ul> | - 
+SetScaleTo(MediaResolution) | Override the resolution and scale the video or image to render at a different size. When using scaleTo the asset should be edited at the resolution dimensions, i.e. use font sizes that look best at HD, then use scaleTo to output the file at SD and the text will be scaled to the correct size. This is useful if you want to create multiple asset sizes. <ul><li>`ResolutionPreview` - 512px x 288px @ 15fps</li><li>`ResolutionMobile` - 640px x 360px @ 25fps</li><li>`ResolutionSd` - 1024px x 576px @25fps</li><li>`ResolutionHd` - 1280px x 720px @25fps</li><li>`Resolution1080` - 1920px x 1080px @25fps</li></ul> | -
+SetQuality(MediaQuality) | Adjust the output quality of the video, image or audio. Adjusting quality affects  render speed, download speeds and storage requirements due to file size. The default `Medium` provides the most optimized choice for all three  factors. <ul><li>`Low` - slightly reduced quality, smaller file size</li><li>`Medium` - optimized quality, render speeds and file size</li><li>`High` - slightly increased quality, larger file size</li></ul> | -
+SetRepeat(bool) | Loop settings for gif files. Set to `true` to loop, `false` to play only once. [default to `true`] | -
+SetRange([*edit.Range](#range)) | Specify a time range to render, i.e. to render only a portion of a video or audio file. Omit this setting to export the entire video. Range can also be used to render a frame at a specific time point - setting a range and output format as `jpg` will output a single frame image at the range `start` point. | -
+SetPoster([*edit.Poster](#poster)) | Generate a poster image from a specific point on the timeline. | -
+SetThumbnail([*edit.Thumbnail](#thumbnail)) | Generate a thumbnail image from a specific point on the timeline. | -
+SetDestinations([*[]Destination](#shotstackdestination)) | A destination is a location where output files can be sent to for serving or hosting. By default all rendered assets are automatically sent to the Shotstack hosting destination. [Destination](#destination) is currently the only option with plans to add more in the future such as S3, YouTube, Vimeo and Mux. If you do not require hosting you can opt-out using the  `exclude` property. | -
 
 ---
