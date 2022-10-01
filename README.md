@@ -34,6 +34,7 @@ A server based render farm takes care of rendering the videos allowing multiple 
 	- [Transform](#transform)
 	- [RotateTransform](#rotatetransform)
 	- [SkewTransform](#skewtransform)
+	- [FlipTransform](#fliptransform)
 
 
 # Using the Golang SDK
@@ -687,5 +688,29 @@ Method | Description | Required
 NewSkewTransform() | Create new skew transform and return *edit.SkewTransform | Y
 SetX(float32) | Skew the clip along it&#39;s x axis. [default to `0`] | -
 SetY(float32) | Skew the clip along it&#39;s y axis. [default to `0`] | -
+
+---
+
+
+### FlipTransform
+
+Flip a clip vertically or horizontally. Acts as a mirror effect of the clip along the selected plane.
+
+#### Example:
+
+```go
+	flipTransform := edit.
+		NewFlipTransform().
+		SetHorizontal(true).
+		SetVertical(true)
+```
+
+#### Methods:
+
+Method | Description | Required
+:--- | :--- | :---: 
+NewFlipTransform() | Create new flip transform and return *edit.FlipTransform | Y
+SetHorizontal(bool) | Flip a clip horizontally. [default to `false`] | - 
+SetVertical(bool) | Flip a clip vertically. [default to `false`] | -
 
 ---
