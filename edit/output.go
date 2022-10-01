@@ -48,8 +48,8 @@ type Range struct {
 	Length float32 `json:"length,omitempty"`
 }
 type Thumbnail struct {
-	Capture int `json:"capture"`
-	Scale   int `json:"scale"`
+	Capture float32 `json:"capture"`
+	Scale   int     `json:"scale"`
 }
 
 // TODO:
@@ -180,7 +180,7 @@ func (p *Poster) SetCapture(capture int) *Poster {
 func NewThumbnail() *Thumbnail {
 	return new(Thumbnail)
 }
-func (t *Thumbnail) SetCapture(capture int) *Thumbnail {
+func (t *Thumbnail) SetCapture(capture float32) *Thumbnail {
 	t.Capture = capture
 	return t
 }
