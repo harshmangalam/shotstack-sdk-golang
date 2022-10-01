@@ -33,6 +33,7 @@ A server based render farm takes care of rendering the videos allowing multiple 
 	- [Crop](#crop)
 	- [Transform](#transform)
 	- [RotateTransform](#rotatetransform)
+	- [SkewTransform](#skewtransform)
 
 
 # Using the Golang SDK
@@ -354,7 +355,7 @@ SetTransition([*edit.Transition](#transition)) | In and out transitions for a cl
 SetEffect(ClipEffect) | A motion effect to apply to the Clip. <ul><li>`ZoomIn` - slow zoom in</li><li>`ZoomOut` - slow zoom out</li><li>`SlideLeft` - slow slide (pan) left</li><li>`SlideRight` - slow slide (pan) right</li><li>`SlideUp` - slow slide (pan) up</li><li>`SlideDown` - slow slide (pan) down</li></ul>| -
 SetFilter(ClipFilter) | A filter effect to apply to the Clip. <ul><li>`Boost` - boost contrast and saturation</li><li>`Contrast` - increase contrast</li><li>`Darken` - darken the scene</li><li>`Greyscale` - remove colour</li><li>`Lighten` - lighten the scene</li><li>`Muted` - reduce saturation and contrast</li><li>`Negative` - invert colors</li></ul> | -
 SetOpacity(float32) | Sets the opacity of the Clip where 1 is opaque and 0 is transparent. [default to `1`] | -
-SetTransform([*edit.Transform](#transform)) | A transformation lets you modify the visual properties of a clip. Available transformations are [edit.RotateTransformation](#rotatetransformation), [edit.SkewTransformation](#skewtransformation) and [edit.FlipTransformation](#fliptransformation). Transformations can be combined to create interesting new shapes and effects. | -
+SetTransform([*edit.Transform](#transform)) | A transformation lets you modify the visual properties of a clip. Available transformations are [edit.RotateTransformation](#rotatetransform), [edit.SkewTransformation](#skewtransformation) and [edit.FlipTransformation](#fliptransformation). Transformations can be combined to create interesting new shapes and effects. | -
 
 ---
 
@@ -661,5 +662,30 @@ Method | Description | Required
 :--- | :--- | :---: 
 NewRotateTransform() | Create new rotate transform and return *edit.RotateTransform | Y
 SetAngle(int) | The angle to rotate the clip. Can be 0 to 360, or 0 to -360. Using a positive number rotates the clip clockwise, negative numbers counter-clockwise. | -
+
+---
+
+
+
+### SkewTransform
+
+Skew a clip so its edges are sheared at an angle. Use values between 0 and 3. Over 3 the clip will be skewed almost flat.
+
+#### Example:
+
+```go
+	skewTransform := edit.
+		NewSkewTransform().
+		SetX(0.5).
+		SetY(0.5)
+```
+
+#### Methods:
+
+Method | Description | Required
+:--- | :--- | :---: 
+NewSkewTransform() | Create new skew transform and return *edit.SkewTransform | Y
+SetX(float32) | Skew the clip along it&#39;s x axis. [default to `0`] | -
+SetY(float32) | Skew the clip along it&#39;s y axis. [default to `0`] | -
 
 ---
