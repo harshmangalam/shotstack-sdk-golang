@@ -53,7 +53,7 @@ A server based render farm takes care of rendering the videos allowing multiple 
 #### required go v1.18+
 
 ```bash
-go install github.com/harshmangalam/shotstack-sdk-golang@latest
+go get github.com/harshmangalam/shotstack-sdk-golang@latest
 ```
 
 ## Video Editing
