@@ -61,7 +61,7 @@ type Output struct {
 	AspectRatio  MediaAspectRatio `json:"aspectRatio,omitempty"`
 	Size         *OutputSize      `json:"size,omitempty"`
 	Fps          float32          `json:"fps,omitempty"`
-	ScaleTo      string           `json:"scaleTo,omitempty"`
+	ScaleTo      MediaResolution  `json:"scaleTo,omitempty"`
 	Quality      MediaQuality     `json:"quality,omitempty"`
 	Repeat       bool             `json:"repeat,omitempty"`
 	Range        *Range           `json:"range,omitempty"`
@@ -99,7 +99,7 @@ func (o *Output) SetFps(fps float32) *Output {
 	return o
 }
 
-func (o *Output) SetScaleTo(scaleTo string) *Output {
+func (o *Output) SetScaleTo(scaleTo MediaResolution) *Output {
 	o.ScaleTo = scaleTo
 	return o
 }
