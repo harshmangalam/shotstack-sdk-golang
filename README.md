@@ -39,6 +39,7 @@ A server based render farm takes care of rendering the videos allowing multiple 
   - [Output Schemas](#output-schemas)
     - [Output](#output)
 	- [Size](#size)
+	- [Range](#range)
 
 
 
@@ -812,5 +813,28 @@ Method | Description | Required
 NewSize() | Create new size and return *edit.OutputSize. |Y
 SetWidth(int) | Set a custom width for the video or image file. Value must be divisible by 2. Maximum video width is 1920px, maximum image width is 4096px. | -
 SetHeight(int) | Set a custom height for the video or image file. Value must be divisible by 2. Maximum video height is 1920px, maximum image height is 4096px. | -
+
+---
+
+### Range
+
+Specify a time range to render, i.e. to render only a portion of a video or audio file. Omit this setting to export the entire video. Range can also be used to render a frame at a specific time point - setting a range and output format as `jpg` will output a single frame image at the range `start` point.
+
+#### Example:
+
+```go
+	newRange := edit.
+		NewRange().
+		SetStart(3).
+		SetLength(6)
+```
+
+#### Methods:
+
+Method | Description | Required
+:--- | :--- | :---: 
+NewRange() | Create new range and return *edit.Range | Y
+SetStart(float32) | The point on the timeline, in seconds, to start the render from - i.e. start at second 3. | -
+SetLength(float) | The length of the portion of the video or audio to render - i.e. render 6 seconds of the video. | -
 
 ---
