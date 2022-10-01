@@ -35,6 +35,7 @@ A server based render farm takes care of rendering the videos allowing multiple 
 	- [RotateTransform](#rotatetransform)
 	- [SkewTransform](#skewtransform)
 	- [FlipTransform](#fliptransform)
+	- [MergeField](#mergefield)
 
 
 # Using the Golang SDK
@@ -712,5 +713,29 @@ Method | Description | Required
 NewFlipTransform() | Create new flip transform and return *edit.FlipTransform | Y
 SetHorizontal(bool) | Flip a clip horizontally. [default to `false`] | - 
 SetVertical(bool) | Flip a clip vertically. [default to `false`] | -
+
+---
+
+
+### MergeField
+
+A merge field consists of a key; `find`, and a `value`; replace. Merge fields can be used to replace placeholders within the JSON edit to create re-usable templates. Placeholders should be a string with double brace delimiters, i.e. `"{{NAME}}"`. A placeholder can be used for any value within the JSON edit.
+
+#### Example:
+
+```go
+	mergeField := edit.
+		NewMergeField().
+		SetFind("NAME").
+		SetReplace("Jane")
+```
+
+#### Methods:
+
+Method | Description | Required
+:--- | :--- | :---: 
+NewMergeField() | Create new merge field and return *edit.MergeField | Y
+SetFind(string) | The string to find <u>without</u> delimiters. | Y
+SetReplace(any) | The replacement value. The replacement can be any valid JSON type - string, boolean, number, etc... | Y
 
 ---
