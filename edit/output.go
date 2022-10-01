@@ -52,8 +52,10 @@ type Thumbnail struct {
 	Scale   float32 `json:"scale"`
 }
 
-// TODO:
-type Destination struct{}
+type Destination struct {
+	Provider string `json:"provider"`
+	Exclude  bool   `json:"exclude,omitempty"`
+}
 
 type Output struct {
 	Format       MediaFileType    `json:"format"`
@@ -188,4 +190,18 @@ func (t *Thumbnail) SetCapture(capture float32) *Thumbnail {
 func (t *Thumbnail) SetScale(scale float32) *Thumbnail {
 	t.Scale = scale
 	return t
+}
+
+func NewDestination() *Destination {
+	return new(Destination)
+}
+
+func (d *Destination) SetProvider(provider string) *Destination {
+	d.Provider = provider
+	return d
+}
+
+func (d *Destination) SetExclude(exclude bool) *Destination {
+	d.Exclude = exclude
+	return d
 }
