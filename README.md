@@ -640,3 +640,26 @@ SetSkew([*edit.SkewTransform](#skewtransform)) | Skew a clip so its edges are sh
 setFlip([*edit.FlipTransform](#fliptransform)) | Flip a clip vertically or horizontally. Acts as a mirror effect of the clip along the selected plane. | -
 
 ---
+
+
+
+### RotateTransform
+
+Rotate a clip by the specified angle in degrees. Rotation origin is set based on the clips `position`.
+
+#### Example:
+
+```go
+	rotateTransform := edit.
+		NewRotateTransform().
+		SetAngle(45)
+```
+
+#### Methods:
+
+Method | Description | Required
+:--- | :--- | :---: 
+NewRotateTransform() | Create new rotate transform and return *edit.RotateTransform | Y
+SetAngle(int) | The angle to rotate the clip. Can be 0 to 360, or 0 to -360. Using a positive number rotates the clip clockwise, negative numbers counter-clockwise. | -
+
+---
