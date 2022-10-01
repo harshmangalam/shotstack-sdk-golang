@@ -41,6 +41,7 @@ A server based render farm takes care of rendering the videos allowing multiple 
 	- [Size](#size)
 	- [Range](#range)
 	- [Poster](#poster)
+	- [Thumbnail](#thumbnail)
 
 
 
@@ -861,3 +862,25 @@ SetCapture(float32) | The point on the timeline in seconds to capture a single f
 
 ---
 
+### Thumbnail
+
+Generate a thumbnail image for the video or image at a specific point from the timeline.
+
+#### Example:
+
+```go
+	thumbnail := edit. 
+		NewThumbnail(). 
+		SetCapture(1). 
+		SetScale(0.3)
+```
+
+#### Methods:
+
+Method | Description | Required
+:--- | :--- | :---: 
+NewThumbnail() | Create new thumbnail and return *edit.Thumbnail  |Y
+SetCapture(float32) | The point on the timeline in seconds to capture a single frame to use as the thumbnail image. | Y
+SetScale(float32) | Scale the thumbnail size to a fraction of the viewport size - i.e. setting the scale to 0.5 will scale  the thumbnail to half the size of the viewport. | Y
+
+---
