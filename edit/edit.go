@@ -8,11 +8,11 @@ const (
 )
 
 type Edit struct {
-	Timeline *Timeline `json:"timeline"`
-	Output   *Output   `json:"output"`
-	Merge    *[]Merge  `json:"merge,omitempty"`
-	Callback string    `json:"callback,omitempty"`
-	Disk     Disk      `json:"disk,omitempty"`
+	Timeline *Timeline     `json:"timeline"`
+	Output   *Output       `json:"output"`
+	Merge    *[]MergeField `json:"merge,omitempty"`
+	Callback string        `json:"callback,omitempty"`
+	Disk     Disk          `json:"disk,omitempty"`
 }
 
 func NewEdit() *Edit {
@@ -31,7 +31,7 @@ func (e *Edit) SetOutput(output *Output) *Edit {
 	return e
 }
 
-func (e *Edit) SetMerges(merge *[]Merge) *Edit {
+func (e *Edit) SetMerges(merge *[]MergeField) *Edit {
 	e.Merge = merge
 	return e
 }

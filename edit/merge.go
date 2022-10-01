@@ -1,20 +1,20 @@
 package edit
 
-type Merge struct {
+type MergeField struct {
 	Find    string `json:"find"`
 	Replace any    `json:"replace"`
 }
 
-func NewMerge() *Merge {
-	return new(Merge)
+func NewMergeField() *MergeField {
+	return new(MergeField)
 }
 
-func (m *Merge) SetFind(find string) *Merge {
+func (m *MergeField) SetFind(find string) *MergeField {
 	m.Find = find
 	return m
 }
 
-func (m *Merge) SetReplace(replace any) *Merge {
+func (m *MergeField) SetReplace(replace any) *MergeField {
 	m.Replace = replace
 	return m
 }
