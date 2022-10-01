@@ -41,7 +41,7 @@ type OutputSize struct {
 	Height int `json:"height,omitempty"`
 }
 type Poster struct {
-	Capture int `json:"capture"`
+	Capture float32 `json:"capture"`
 }
 type Range struct {
 	Start  float32 `json:"start,omitempty"`
@@ -49,7 +49,7 @@ type Range struct {
 }
 type Thumbnail struct {
 	Capture float32 `json:"capture"`
-	Scale   int     `json:"scale"`
+	Scale   float32 `json:"scale"`
 }
 
 // TODO:
@@ -170,7 +170,7 @@ func NewPoster() *Poster {
 	return new(Poster)
 }
 
-func (p *Poster) SetCapture(capture int) *Poster {
+func (p *Poster) SetCapture(capture float32) *Poster {
 	p.Capture = capture
 	return p
 }
@@ -185,7 +185,7 @@ func (t *Thumbnail) SetCapture(capture float32) *Thumbnail {
 	return t
 }
 
-func (t *Thumbnail) SetScale(scale int) *Thumbnail {
+func (t *Thumbnail) SetScale(scale float32) *Thumbnail {
 	t.Scale = scale
 	return t
 }
