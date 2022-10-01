@@ -42,6 +42,7 @@ A server based render farm takes care of rendering the videos allowing multiple 
 	- [Range](#range)
 	- [Poster](#poster)
 	- [Thumbnail](#thumbnail)
+	- [Destination](#destination)
 
 
 
@@ -882,5 +883,28 @@ Method | Description | Required
 NewThumbnail() | Create new thumbnail and return *edit.Thumbnail  |Y
 SetCapture(float32) | The point on the timeline in seconds to capture a single frame to use as the thumbnail image. | Y
 SetScale(float32) | Scale the thumbnail size to a fraction of the viewport size - i.e. setting the scale to 0.5 will scale  the thumbnail to half the size of the viewport. | Y
+
+---
+
+### Destination
+
+Send rendered assets to the Shotstack hosting and CDN service. This destination is enabled by default.
+
+#### Example:
+
+```go
+	destination := edit.
+		NewDestination().
+		SetProvider("shotstack").
+		SetExclude(false)
+```
+
+#### Methods:
+
+Method | Description | Required
+:--- | :--- | :---: 
+NewDestination() | Create new destination and return *edit.Destination  |Y
+SetProvider(string) | The destination to send rendered assets to - set to `shotstack` for Shotstack hosting and CDN. [default to `shotstack`] | Y
+SetExclude(bool) | Set to `true` to opt-out from the Shotstack hosting and CDN service. All files must be downloaded within 24 hours of rendering. [default to `false`] | -
 
 ---
