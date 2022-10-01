@@ -38,6 +38,7 @@ A server based render farm takes care of rendering the videos allowing multiple 
 	- [MergeField](#mergefield)
   - [Output Schemas](#output-schemas)
     - [Output](#output)
+	- [Size](#size)
 
 
 
@@ -786,6 +787,30 @@ SetRepeat(bool) | Loop settings for gif files. Set to `true` to loop, `false` to
 SetRange([*edit.Range](#range)) | Specify a time range to render, i.e. to render only a portion of a video or audio file. Omit this setting to export the entire video. Range can also be used to render a frame at a specific time point - setting a range and output format as `jpg` will output a single frame image at the range `start` point. | -
 SetPoster([*edit.Poster](#poster)) | Generate a poster image from a specific point on the timeline. | -
 SetThumbnail([*edit.Thumbnail](#thumbnail)) | Generate a thumbnail image from a specific point on the timeline. | -
-SetDestinations([*[]Destination](#shotstackdestination)) | A destination is a location where output files can be sent to for serving or hosting. By default all rendered assets are automatically sent to the Shotstack hosting destination. [Destination](#destination) is currently the only option with plans to add more in the future such as S3, YouTube, Vimeo and Mux. If you do not require hosting you can opt-out using the  `exclude` property. | -
+SetDestinations([*[]Destination](#destination)) | A destination is a location where output files can be sent to for serving or hosting. By default all rendered assets are automatically sent to the Shotstack hosting destination. [Destination](#destination) is currently the only option with plans to add more in the future such as S3, YouTube, Vimeo and Mux. If you do not require hosting you can opt-out using the  `exclude` property. | -
+
+---
+
+
+### Size
+
+Set a custom size for a video or image. When using a custom size omit the `resolution` and `aspectRatio`. Custom sizes must be divisible by 2 based on the encoder specifications.
+
+#### Example:
+
+```go
+	size := edit.
+		NewSize().
+		SetWidth(1200).
+		SetHeight(800)
+```
+
+#### Methods:
+
+Method | Description | Required
+:--- | :--- | :---: 
+NewSize() | Create new size and return *edit.OutputSize. |Y
+SetWidth(int) | Set a custom width for the video or image file. Value must be divisible by 2. Maximum video width is 1920px, maximum image width is 4096px. | -
+SetHeight(int) | Set a custom height for the video or image file. Value must be divisible by 2. Maximum video height is 1920px, maximum image height is 4096px. | -
 
 ---
