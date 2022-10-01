@@ -32,6 +32,7 @@ A server based render farm takes care of rendering the videos allowing multiple 
 	- [Offset](#offset)
 	- [Crop](#crop)
 	- [Transform](#transform)
+	- [RotateTransform](#rotatetransform)
 
 
 # Using the Golang SDK
@@ -615,7 +616,7 @@ SetRight(float32) | Crop from the right of the asset | -
 
 ---
 
-### Transformation
+### Transform
 
 Apply one or more transformations to a clip. **Transformations** alter the visual properties of a clip and can be combined to create new shapes and effects.
 
