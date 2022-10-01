@@ -40,6 +40,7 @@ A server based render farm takes care of rendering the videos allowing multiple 
     - [Output](#output)
 	- [Size](#size)
 	- [Range](#range)
+	- [Poster](#poster)
 
 
 
@@ -838,3 +839,25 @@ SetStart(float32) | The point on the timeline, in seconds, to start the render f
 SetLength(float) | The length of the portion of the video or audio to render - i.e. render 6 seconds of the video. | -
 
 ---
+
+### Poster
+
+Generate a **Poster** image for the video at a specific point from the timeline. The poster image size will match the size of the output video.
+
+#### Example:
+
+```go
+	poster := edit.
+		NewPoster().
+		SetCapture(1)
+```
+
+#### Methods:
+
+Method | Description | Required
+:--- | :--- | :---: 
+NewPoster() | Create new poster and return *edit.Poster | Y
+SetCapture(float32) | The point on the timeline in seconds to capture a single frame to use as the poster image. | Y
+
+---
+
