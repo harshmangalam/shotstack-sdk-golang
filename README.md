@@ -31,6 +31,7 @@ A server based render farm takes care of rendering the videos allowing multiple 
 	- [Transition](#transition)
 	- [Offset](#offset)
 	- [Crop](#crop)
+	- [Transform](#transform)
 
 
 # Using the Golang SDK
@@ -611,5 +612,30 @@ SetTop(float32) | Crop from the top of the asset | -
 SetBottom(float32) | Crop from the bottom of the asset | -
 SetLeft(float32) | Crop from the left of the asset | -
 SetRight(float32) | Crop from the right of the asset | -
+
+---
+
+### Transformation
+
+Apply one or more transformations to a clip. **Transformations** alter the visual properties of a clip and can be combined to create new shapes and effects.
+
+#### Example:
+
+```go
+	transform := edit.
+		NewTransform().
+		SetRotate(rotate).
+		SetSkew(skew).
+		SetFlip(flip)
+```
+
+#### Methods:
+
+Method | Description | Required
+:--- | :--- | :---: 
+NewTransform() | Create new transformation and return *edit.Transform | Y
+SetRotate([*edit.RotateTransform](#rotatetransform)) | Rotate a clip by the specified angle in degrees. Rotation origin is set based on the clips `position`. | -
+SetSkew([*edit.SkewTransform](#skewtransform)) | Skew a clip so its edges are sheared at an angle. Use values between 0 and 3. Over 3 the clip will be skewed almost flat. | -
+setFlip([*edit.FlipTransform](#fliptransform)) | Flip a clip vertically or horizontally. Acts as a mirror effect of the clip along the selected plane. | -
 
 ---
