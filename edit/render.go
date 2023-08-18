@@ -3,7 +3,7 @@ package edit
 import (
 	"encoding/json"
 
-	shotstack "github.com/harshmangalam/shotstack-sdk-golang"
+	shotstack "github.com/dougbarrett/shotstack-sdk-golang"
 )
 
 // edit
