@@ -1,3 +1,3 @@
-module github.com/harshmangalam/shotstack-sdk-golang
+module github.com/dougbarrett/shotstack-sdk-golang
 
 go 1.18

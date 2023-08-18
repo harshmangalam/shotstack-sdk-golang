@@ -53,7 +53,7 @@ A server based render farm takes care of rendering the videos allowing multiple 
 #### required go v1.18+
 
 ```bash
-go get github.com/harshmangalam/shotstack-sdk-golang@latest
+go get github.com/dougbarrett/shotstack-sdk-golang@latest
 ```
 
 ## Video Editing
@@ -71,8 +71,8 @@ package main
 import (
 	"fmt"
 
-	shotstack "github.com/harshmangalam/shotstack-sdk-golang"
-	"github.com/harshmangalam/shotstack-sdk-golang/edit"
+	shotstack "github.com/dougbarrett/shotstack-sdk-golang"
+	"github.com/dougbarrett/shotstack-sdk-golang/edit"
 )
 
 func main() {
@@ -147,8 +147,8 @@ import (
 	"encoding/json"
 	"fmt"
 
-	shotstack "github.com/harshmangalam/shotstack-sdk-golang"
-	"github.com/harshmangalam/shotstack-sdk-golang/edit"
+	shotstack "github.com/dougbarrett/shotstack-sdk-golang"
+	"github.com/dougbarrett/shotstack-sdk-golang/edit"
 )
 
 func main() {
