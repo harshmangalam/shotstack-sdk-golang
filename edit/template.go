@@ -29,7 +29,7 @@ func (e *Template) SetID(id string) *Template {
 
 func (e *Template) PostRender(config *shotstack.Config) (*QueuedResponse, error) {
 
-	res, err := shotstack.NewRequest().SetMethod(shotstack.POST).SetPath("templates/").SetConfig(config).SetData(e).Send()
+	res, err := shotstack.NewRequest().SetMethod(shotstack.POST).SetPath("templates/render").SetConfig(config).SetData(e).Send()
 
 	if err != nil {
 		return nil, err
